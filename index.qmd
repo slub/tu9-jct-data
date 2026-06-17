@@ -14,7 +14,8 @@ institutes of technology. The data comes from the
 [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
 ("Transformative Agreements Public Data", released under
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/)) and is refreshed
-automatically every week.
+automatically every week. Agreement names, publishers and consortia are enriched
+from the [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
 
 An agreement is listed for a university when that university's exact
 [ROR](https://ror.org/) identifier appears among the agreement's participating
@@ -72,4 +73,7 @@ repository:
 
 - `data/agreements.csv` — every agreement with at least one TU9 participant
 - `data/journals.csv` — every journal covered by those agreements
+- `data/esac.csv` — agreement name, publisher, consortium and dates from the
+  [ESAC TA Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/),
+  keyed by ESAC ID
 - `data/<institution>/` — the same two views for a single institution

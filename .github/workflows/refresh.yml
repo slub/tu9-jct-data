@@ -45,6 +45,9 @@ jobs:
           FORCE: ${{ inputs.force && '1' || '' }}
         run: Rscript scripts/fetch.R
 
+      - name: Enrich with ESAC registry metadata
+        run: Rscript scripts/esac.R
+
       - name: Commit refreshed data
         run: |
           git config user.name  "github-actions[bot]"

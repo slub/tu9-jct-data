@@ -20,6 +20,7 @@ Three views of the same data:
 | --- | --- |
 | **All agreements** with at least one TU9 participant | [`data/agreements.csv`](data/agreements.csv) |
 | **All journals** covered by those agreements | [`data/journals.csv`](data/journals.csv) |
+| **ESAC metadata** for those agreements (name, publisher, …) | [`data/esac.csv`](data/esac.csv) |
 | **Per institution** — one folder each | `data/<institution>/agreements.csv` and `journals.csv` |
 
 The TU9 institutions and their identifiers are listed in
@@ -49,6 +50,17 @@ The TU9 institutions and their identifiers are listed in
 | `url` | Source CSV for that agreement sub-package |
 | `members` | TU9 institutions participating |
 
+`esac.csv` (from the [ESAC TA Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/))
+
+| Column | Meaning |
+| --- | --- |
+| `id` | ESAC ID (joins to `esac_id` above) |
+| `name` | Agreement name / labeling |
+| `publisher` | Publisher |
+| `consortium` | Negotiating consortium or institution |
+| `start_date` | Agreement start date |
+| `end_date` | Agreement end date (per the ESAC registry) |
+
 ## How an institution is matched
 
 An agreement is listed for a university when **any of that university's
@@ -66,8 +78,8 @@ provides the display name. No code changes are needed.
 ## How it works
 
 ```
-data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  data/*.csv  ──►  Quarto site ──► GitHub Pages
-   (TU9 ROR ids)          (weekly cron)        (committed)      (per-institution pages)
+data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ──►  data/*.csv  ──►  Quarto site ──► GitHub Pages
+   (TU9 ROR ids)          (weekly cron)        (ESAC enrichment)     (committed)      (per-institution pages)
 ```
 
 1. `scripts/fetch.R` reads the JCT index, downloads each agreement, keeps those
@@ -75,8 +87,14 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  data/*.csv  ──►
 2. A **guard rail** aborts the run without overwriting if the number of
    agreements drops by more than 20 % compared to the committed data (protects
    against a bad fetch). Re-run from the Actions tab with *force* to override.
-3. `scripts/gen_pages.R` creates one Quarto page per institution.
-4. The site is rendered and deployed to GitHub Pages.
+3. `scripts/esac.R` enriches those agreements with name, publisher and
+   consortium from the ESAC TA Registry, writing `data/esac.csv`. It is **best
+   effort**: the registry is a snapshot behind a rotating share link, so any
+   download error is non-fatal — the last-good `data/esac.csv` is kept and the
+   refresh continues. Bump the URL in `scripts/esac.R` when ESAC publishes a new
+   registry.
+4. `scripts/gen_pages.R` creates one Quarto page per institution.
+5. The site is rendered and deployed to GitHub Pages.
 
 Two GitHub Actions workflows drive this:
 
