@@ -76,8 +76,14 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  data/*.csv  ──►
 3. `scripts/gen_pages.R` creates one Quarto page per institution.
 4. The site is rendered and deployed to GitHub Pages.
 
-The whole thing runs on a schedule defined in
-[`.github/workflows/refresh.yml`](.github/workflows/refresh.yml).
+Two GitHub Actions workflows drive this:
+
+- [`refresh.yml`](.github/workflows/refresh.yml) — the **weekly cron**: fetches
+  fresh data, commits it, then rebuilds and deploys the site.
+- [`pages.yml`](.github/workflows/pages.yml) — a **lightweight rebuild** that
+  re-renders and deploys the site from the data already in the repo, *without*
+  fetching. It runs automatically when site code is pushed to `main`, or on
+  demand from the Actions tab — handy after a layout or wording change.
 
 ## Running it yourself
 
