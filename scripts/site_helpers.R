@@ -39,7 +39,7 @@ agreements_table <- function(df) {
       end_date      = colDef(name = "End date", minWidth = 90),
       last_reviewed = colDef(name = "Last reviewed", minWidth = 100),
       members       = colDef(name = "TU9 members", cell = members_cell),
-      data_url      = colDef(name = "Data", cell = url_cell("CSV"), minWidth = 60)
+      data_url      = colDef(name = "Data", cell = url_cell("CSV"), html = TRUE, minWidth = 60)
     )
   )
 }
@@ -54,7 +54,7 @@ journals_table <- function(df) {
       eissn   = colDef(name = "ISSN (online)", minWidth = 110),
       pissn   = colDef(name = "ISSN (print)", minWidth = 110),
       esac_id = colDef(name = "ESAC ID", minWidth = 130),
-      url     = colDef(name = "Data", cell = url_cell("CSV"), minWidth = 60),
+      url     = colDef(name = "Data", cell = url_cell("CSV"), html = TRUE, minWidth = 60),
       members = colDef(name = "TU9 members", cell = members_cell)
     )
   )
