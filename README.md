@@ -68,12 +68,21 @@ An agreement is listed for a university when **any of that university's
 participating institutions. Matching is deliberately **strict — precision
 first**: an institution is represented only by ROR ids it explicitly claims.
 
-An institution can have more than one ROR — for example, Technische Universität
-Dresden also counts agreements registered under its library, the
-[SLUB Dresden](https://ror.org/03wf51b65). To extend coverage, add the extra
-ROR identifier as a **new row in [`data-raw/orgs.csv`](data-raw/orgs.csv) with
-the same `slug`** as the institution it belongs to; the first row for a slug
-provides the display name. No code changes are needed.
+An institution can have more than one ROR — most notably when its **library is a
+standalone organisation** with its own ROR. Two TU9 libraries are like this and
+are counted under their university:
+
+- Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65)
+- Leibniz Universität Hannover + [TIB](https://ror.org/04aj4c181)
+
+University **clinics** are intentionally left out: in this data they only appear
+on agreements where the university itself is already a participant, so they add
+no coverage (verified, not assumed).
+
+To extend coverage, add the extra ROR identifier as a **new row in
+[`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug`** as the
+institution it belongs to; the first row for a slug provides the display name.
+No code changes are needed.
 
 ## How it works
 

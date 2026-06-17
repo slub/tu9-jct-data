@@ -1,7 +1,7 @@
 {
   "updated": "2026-06-17",
   "source": "Journal Checker Tool - Transformative Agreements Public Data (CC0)",
-  "n_agreements": 36,
+  "n_agreements": 37,
   "n_journals": 12874,
   "institutions": [
     {
@@ -21,9 +21,9 @@
     {
       "name": "Leibniz University Hannover",
       "slug": "leibniz-hannover",
-      "ror_id": "0304hq317",
-      "n_agreements": 14,
-      "n_journals": 10259
+      "ror_id": "0304hq317;04aj4c181",
+      "n_agreements": 22,
+      "n_journals": 11894
     },
     {
       "name": "Technical University of Berlin",
