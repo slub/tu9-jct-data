@@ -16,9 +16,14 @@ read_meta <- function() {
 }
 
 # Render a URL cell as a short link.
-url_cell <- function(label = "open") {
-  function(value) if (is.na(value) || value == "") "" else
-    as.character(tags$a(href = value, target = "_blank", label))
+# The agreement data URLs are published Google Sheets exported as CSV. Drop the
+# CSV export parameters so the link opens the readable (HTML) sheet view.
+sheet_cell <- function(label = "Google Sheets") {
+  function(value) {
+    if (is.na(value) || value == "") return("")
+    html_url <- sub("&single=true&output=csv", "", value, fixed = TRUE)
+    as.character(tags$a(href = html_url, target = "_blank", label))
+  }
 }
 
 # Show semicolon-separated member slugs as small badges.
@@ -39,7 +44,7 @@ agreements_table <- function(df) {
       end_date      = colDef(name = "End date", minWidth = 90),
       last_reviewed = colDef(name = "Last reviewed", minWidth = 100),
       members       = colDef(name = "TU9 members", cell = members_cell),
-      data_url      = colDef(name = "Data", cell = url_cell("CSV"), html = TRUE, minWidth = 60)
+      data_url      = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110)
     )
   )
 }
@@ -54,7 +59,7 @@ journals_table <- function(df) {
       eissn   = colDef(name = "ISSN (online)", minWidth = 110),
       pissn   = colDef(name = "ISSN (print)", minWidth = 110),
       esac_id = colDef(name = "ESAC ID", minWidth = 130),
-      url     = colDef(name = "Data", cell = url_cell("CSV"), html = TRUE, minWidth = 60),
+      url     = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110),
       members = colDef(name = "TU9 members", cell = members_cell)
     )
   )
