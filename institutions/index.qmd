@@ -1,0 +1,30 @@
+---
+title: "Institutions"
+---
+
+```{r}
+source("scripts/site_helpers.R")
+meta <- read_meta()
+inst <- meta$institutions
+```
+
+Select an institution to see its agreements and the journals they cover.
+
+```{r}
+df <- data.frame(
+  Institution = vapply(inst, function(x) x$name, character(1)),
+  Agreements  = vapply(inst, function(x) x$n_agreements, integer(1)),
+  Journals    = vapply(inst, function(x) x$n_journals, integer(1)),
+  slug        = vapply(inst, function(x) x$slug, character(1)),
+  stringsAsFactors = FALSE
+)
+reactable(
+  df, sortable = TRUE, defaultPageSize = 9, highlight = TRUE,
+  columns = list(
+    Institution = colDef(cell = function(value, index) {
+      htmltools::tags$a(href = sprintf("%s.html", df$slug[index]), value)
+    }),
+    slug = colDef(show = FALSE)
+  )
+)
+```

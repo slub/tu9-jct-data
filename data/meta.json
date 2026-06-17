@@ -1,0 +1,71 @@
+{
+  "updated": "2026-06-17",
+  "source": "Journal Checker Tool - Transformative Agreements Public Data (CC0)",
+  "n_agreements": 36,
+  "n_journals": 12874,
+  "institutions": [
+    {
+      "name": "Technische Universität Braunschweig",
+      "slug": "tu-braunschweig",
+      "ror_id": "010nsgg66",
+      "n_agreements": 18,
+      "n_journals": 12012
+    },
+    {
+      "name": "Technical University of Munich",
+      "slug": "tu-munich",
+      "ror_id": "02kkvpp62",
+      "n_agreements": 20,
+      "n_journals": 12264
+    },
+    {
+      "name": "Leibniz University Hannover",
+      "slug": "leibniz-hannover",
+      "ror_id": "0304hq317",
+      "n_agreements": 14,
+      "n_journals": 10259
+    },
+    {
+      "name": "Technical University of Berlin",
+      "slug": "tu-berlin",
+      "ror_id": "03v4gjf40",
+      "n_agreements": 16,
+      "n_journals": 10313
+    },
+    {
+      "name": "Technische Universität Dresden",
+      "slug": "tu-dresden",
+      "ror_id": "042aqky30",
+      "n_agreements": 9,
+      "n_journals": 9867
+    },
+    {
+      "name": "Karlsruhe Institute of Technology",
+      "slug": "kit",
+      "ror_id": "04t3en479",
+      "n_agreements": 18,
+      "n_journals": 11512
+    },
+    {
+      "name": "University of Stuttgart",
+      "slug": "uni-stuttgart",
+      "ror_id": "04vnq7t77",
+      "n_agreements": 20,
+      "n_journals": 11677
+    },
+    {
+      "name": "RWTH Aachen University",
+      "slug": "rwth-aachen",
+      "ror_id": "04xfq0f34",
+      "n_agreements": 16,
+      "n_journals": 11099
+    },
+    {
+      "name": "Technische Universität Darmstadt",
+      "slug": "tu-darmstadt",
+      "ror_id": "05n911h24",
+      "n_agreements": 13,
+      "n_journals": 9893
+    }
+  ]
+}

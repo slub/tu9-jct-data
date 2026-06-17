@@ -1,0 +1,14 @@
+---
+title: "All journals"
+---
+
+```{r}
+source("scripts/site_helpers.R")
+```
+
+Every journal covered by an agreement in which at least one TU9 university takes
+part. A journal can appear under more than one agreement.
+
+```{r}
+journals_table(read_data("journals.csv"))
+```

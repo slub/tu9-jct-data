@@ -1,0 +1,15 @@
+---
+title: "All agreements"
+---
+
+```{r}
+source("scripts/site_helpers.R")
+```
+
+Every transformative agreement in which **at least one** TU9 university takes
+part. One row per agreement and relationship (sub-package); the *TU9 members*
+column shows which institutions participate.
+
+```{r}
+agreements_table(read_data("agreements.csv"))
+```

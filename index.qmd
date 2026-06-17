@@ -1,0 +1,72 @@
+---
+title: "TU9 Transformative Agreements"
+---
+
+```{r}
+#| echo: false
+source("scripts/site_helpers.R")
+meta <- read_meta()
+```
+
+This site lists **transformative-agreement** metadata for the
+[TU9](https://www.tu9.de/) universities — the alliance of leading German
+institutes of technology. The data comes from the
+[Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
+("Transformative Agreements Public Data", released under
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/)) and is refreshed
+automatically every week.
+
+An agreement is listed for a university when that university's exact
+[ROR](https://ror.org/) identifier appears among the agreement's participating
+institutions. Matching is intentionally **strict** (precision first): closely
+related entities such as separate libraries or university clinics are *not*
+counted yet.
+
+```{r}
+#| echo: false
+#| output: asis
+cat(sprintf(
+  "*Last updated: **%s**. Covering **%d** agreement records and **%d** unique journals.*\n",
+  meta$updated, meta$n_agreements, meta$n_journals))
+```
+
+## Coverage by institution
+
+```{r}
+#| echo: false
+inst <- meta$institutions
+df <- data.frame(
+  Institution  = vapply(inst, function(x) x$name, character(1)),
+  Agreements   = vapply(inst, function(x) x$n_agreements, integer(1)),
+  Journals     = vapply(inst, function(x) x$n_journals, integer(1)),
+  slug         = vapply(inst, function(x) x$slug, character(1)),
+  ror          = vapply(inst, function(x) x$ror_id, character(1)),
+  stringsAsFactors = FALSE
+)
+reactable(
+  df,
+  sortable = TRUE, defaultPageSize = 9, highlight = TRUE,
+  columns = list(
+    Institution = colDef(cell = function(value, index) {
+      htmltools::tags$a(href = sprintf("institutions/%s.html", df$slug[index]), value)
+    }),
+    Agreements = colDef(name = "Agreements"),
+    Journals   = colDef(name = "Journals"),
+    slug = colDef(show = FALSE),
+    ror  = colDef(name = "ROR", cell = function(value) {
+      htmltools::tags$a(href = paste0("https://ror.org/", value),
+                        target = "_blank", value)
+    })
+  )
+)
+```
+
+## Data downloads
+
+All views are available as plain CSV files in the
+[`data/` directory](https://github.com/slub/tu9-jct-data/tree/main/data) of the
+repository:
+
+- `data/agreements.csv` — every agreement with at least one TU9 participant
+- `data/journals.csv` — every journal covered by those agreements
+- `data/<institution>/` — the same two views for a single institution

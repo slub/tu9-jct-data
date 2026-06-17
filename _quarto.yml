@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+
+execute:
+  echo: false
+  warning: false
+  message: false
+
+website:
+  title: "TU9 Transformative Agreements"
+  description: >-
+    Transformative-agreement metadata for the TU9 universities,
+    sourced from the Journal Checker Tool (CC0).
+  repo-url: https://github.com/slub/tu9-jct-data
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: agreements.qmd
+        text: Agreements
+      - href: journals.qmd
+        text: Journals
+      - href: institutions/index.qmd
+        text: Institutions
+  page-footer:
+    left: "Data: Journal Checker Tool (CC0) · Code: MIT"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    page-layout: full
