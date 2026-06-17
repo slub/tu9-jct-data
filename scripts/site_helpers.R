@@ -64,9 +64,14 @@ journals_table <- function(df) {
 inst_page <- function(slug) {
   a <- read_data(slug, "agreements.csv")
   j <- read_data(slug, "journals.csv")
+  repo <- sprintf("https://github.com/slub/tu9-jct-data/blob/main/data/%s", slug)
   tagList(
-    tags$p(tags$a(href = "../data/", "Download this institution's CSV files"),
-           " from the repository."),
+    tags$p(
+      "Download this institution's data as CSV: ",
+      tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", "agreements.csv"),
+      " · ",
+      tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", "journals.csv"),
+      "."),
     tags$h2(sprintf("Agreements (%d)", nrow(a))),
     agreements_table(a),
     tags$h2(sprintf("Journals (%d unique)", nrow(unique(j[c("title", "eissn", "pissn")])))),
