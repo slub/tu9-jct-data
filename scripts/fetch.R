@@ -101,9 +101,13 @@ write_csv(journals,   "data/journals.csv",   na = "")
 
 n_unique_journals <- function(j) nrow(distinct(j, title, eissn, pissn))
 
-inst_summary <- vector("list", nrow(orgs))
-for (i in seq_len(nrow(orgs))) {
-  slug <- orgs$slug[i]
+# One entry per institution. A slug may map to several ROR ids (e.g. a
+# university plus its library); the first row for a slug supplies the name.
+institutions <- orgs[!duplicated(orgs$slug), c("name", "slug")]
+
+inst_summary <- vector("list", nrow(institutions))
+for (i in seq_len(nrow(institutions))) {
+  slug <- institutions$slug[i]
   out_dir <- file.path("data", slug)
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
@@ -113,7 +117,8 @@ for (i in seq_len(nrow(orgs))) {
   write_csv(j_i, file.path(out_dir, "journals.csv"),   na = "")
 
   inst_summary[[i]] <- list(
-    name = orgs$name[i], slug = slug, ror_id = orgs$ror_id[i],
+    name = institutions$name[i], slug = slug,
+    ror_id = paste(orgs$ror_id[orgs$slug == slug], collapse = ";"),
     n_agreements = nrow(a_i), n_journals = n_unique_journals(j_i)
   )
 }

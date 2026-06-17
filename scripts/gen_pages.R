@@ -4,6 +4,7 @@
 
 source("scripts/jct.R")
 orgs <- read_orgs()
+orgs <- orgs[!duplicated(orgs$slug), ]   # one page per institution
 dir.create("institutions", showWarnings = FALSE)
 
 template <- '---

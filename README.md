@@ -51,15 +51,17 @@ The TU9 institutions and their identifiers are listed in
 
 ## How an institution is matched
 
-An agreement is listed for a university only when that university's **exact
-[ROR](https://ror.org/) identifier** appears among the agreement's
+An agreement is listed for a university when **any of that university's
+[ROR](https://ror.org/) identifiers** appears among the agreement's
 participating institutions. Matching is deliberately **strict — precision
-first**: closely related but separate entities (e.g. an institution's library
-or university clinic with its own ROR) are **not** counted yet.
+first**: an institution is represented only by ROR ids it explicitly claims.
 
-To broaden coverage later, add the extra ROR identifiers as new rows in
-[`data-raw/orgs.csv`](data-raw/orgs.csv) — the rest of the pipeline needs no
-changes.
+An institution can have more than one ROR — for example, Technische Universität
+Dresden also counts agreements registered under its library, the
+[SLUB Dresden](https://ror.org/03wf51b65). To extend coverage, add the extra
+ROR identifier as a **new row in [`data-raw/orgs.csv`](data-raw/orgs.csv) with
+the same `slug`** as the institution it belongs to; the first row for a slug
+provides the display name. No code changes are needed.
 
 ## How it works
 
