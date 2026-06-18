@@ -45,6 +45,13 @@ esac_cell <- function(value) {
   as.character(tags$a(href = url, target = "_blank", value))
 }
 
+# Link an ISSN to its record in the ISSN Portal.
+issn_cell <- function(value) {
+  if (is.na(value) || value == "") return("")
+  url <- paste0("https://portal.issn.org/resource/ISSN/", value)
+  as.character(tags$a(href = url, target = "_blank", value))
+}
+
 # Render a URL cell as a short link.
 # The agreement data URLs are published Google Sheets exported as CSV. Drop the
 # CSV export parameters so the link opens the readable (HTML) sheet view.
@@ -91,8 +98,8 @@ journals_table <- function(df) {
     defaultPageSize = 25, showPageSizeOptions = TRUE, highlight = TRUE,
     columns = list(
       title   = colDef(name = "Journal", minWidth = 220),
-      eissn   = colDef(name = "ISSN (online)", minWidth = 110),
-      pissn   = colDef(name = "ISSN (print)", minWidth = 110),
+      eissn   = colDef(name = "ISSN (online)", cell = issn_cell, html = TRUE, minWidth = 110),
+      pissn   = colDef(name = "ISSN (print)", cell = issn_cell, html = TRUE, minWidth = 110),
       name    = colDef(name = "Agreement", minWidth = 150),
       esac_id = colDef(name = "ESAC ID", cell = esac_cell, html = TRUE, minWidth = 130),
       url     = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110),
