@@ -24,7 +24,7 @@ GUARD_THRESHOLD <- 0.20  # refuse to overwrite if matched rows drop by more than
 # Published ESAC TA Registry snapshot (xlsx, sheet "registry"). Rotated by ESAC
 # on each new release; update this line and the date when that happens.
 esac_registry_url <- function() {
-  "https://keeper.mpdl.mpg.de/f/28a9248b05d84d96a215/?dl=1" # first seen: 2026-06-17
+  "https://keeper.mpdl.mpg.de/f/316f53c457ca4c0f88b8/?dl=1" # first seen: 2026-06-20 (registry updated 2026-06-19)
 }
 
 # Link to an agreement's page in the public ESAC registry.
