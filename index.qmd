@@ -70,19 +70,7 @@ reactable(
 )
 ```
 
-## Data downloads
+## Downloads
 
-All data is published as plain CSV in the
-[`data/` directory](https://github.com/slub/tu9-jct-data/tree/main/data) of the
-repository.
-
-Two views — agreements and the journals they cover — for all TU9 universities
-together and per institution:
-
-- `data/agreements.csv` — every agreement with at least one TU9 participant
-- `data/journals.csv` — every journal covered by those agreements
-- `data/<institution>/` — the same two views for a single institution
-
-Plus the ESAC registry metadata they are enriched with:
-
-- `data/esac.csv` — ESAC-registered agreements with id, name, publisher, consortium and dates
+All views are available as plain CSV — hosted on this site and in the
+repository. See the [Downloads](downloads.qmd) page.

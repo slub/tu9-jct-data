@@ -28,6 +28,8 @@ website:
         text: Journals
       - href: institutions/index.qmd
         text: Institutions
+      - href: downloads.qmd
+        text: Downloads
     right:
       - icon: github
         href: https://github.com/slub/tu9-jct-data

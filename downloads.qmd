@@ -1,0 +1,57 @@
+---
+title: "Downloads"
+---
+
+```{r}
+#| echo: false
+source("scripts/site_helpers.R")
+meta <- read_meta()
+```
+
+All data is hosted directly on this site and mirrored in the
+[GitHub repository](https://github.com/slub/tu9-jct-data), the source of truth
+for the code and data.
+
+## Files on this site
+
+Two views — agreements and the journals they cover:
+
+- [`agreements.csv`](agreements.csv) — every agreement with at least one TU9 participant
+- [`journals.csv`](journals.csv) — every journal covered by those agreements
+
+Per institution (the same two views):
+
+```{r}
+#| echo: false
+#| output: asis
+for (x in meta$institutions) {
+  cat(sprintf(
+    "- `institutions/%s/` — [agreements.csv](institutions/%s/agreements.csv) · [journals.csv](institutions/%s/journals.csv)\n",
+    x$slug, x$slug, x$slug))
+}
+```
+
+ESAC enrichment:
+
+- [`esac.csv`](esac.csv) — ESAC-registered agreements with id, name, publisher, consortium and dates
+
+Pipeline inputs:
+
+- [`orgs.csv`](orgs.csv) — TU9 institutions and their ROR identifiers
+- [`urls.csv`](urls.csv) — each library's open-access funding page
+
+Other:
+
+- [`meta.json`](meta.json) — summary counts and last-updated date
+- [`DATA-LICENSE`](DATA-LICENSE) — the data licence (CC0 1.0)
+
+## GitHub repository
+
+The [repository](https://github.com/slub/tu9-jct-data) is the source of truth
+for the code and data. The same files are browsable there in the
+[`data/` directory](https://github.com/slub/tu9-jct-data/tree/main/data):
+
+- `data/agreements.csv` — every agreement with at least one TU9 participant
+- `data/journals.csv` — every journal covered by those agreements
+- `data/<institution>/` — the same two views for a single institution
+- `data/esac.csv` — ESAC registry metadata (id, name, publisher, consortium, dates)
