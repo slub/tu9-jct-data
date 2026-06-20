@@ -24,7 +24,7 @@ publishers.
    [crawls the ESAC registry weekly](https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/).
    When it finds a new agreement, it reaches out to the consortium to obtain the
    list of titles covered and which institutions have access, then publishes the
-   result in the JCT within about ten working days.
+   result in the JCT.
 4. The JCT exposes this as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    and an [API](https://journalcheckertool.org/apidocs).
