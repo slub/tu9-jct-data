@@ -36,7 +36,7 @@ publishers.
 The crucial step is the third one. ESAC alone does not yield a clean list of
 named participating institutions: registration is at the consortium level, and
 contributors submit
-[whatever level of detail they are comfortable providing](https://esac-initiative.org/about/transformative-agreements/share/).
+whatever level of detail they are comfortable providing.
 The participating-institution list is therefore obtained by the JCT team
 contacting consortia directly and curating the result by hand — it is not
 scraped from publishers.
@@ -47,21 +47,22 @@ between an agreement and its journal and institution lists: a single agreement
 can give different institutions access to different sets of titles, which the
 JCT records in its own per-agreement sheets.
 
-Maintenance is a
-[distributed partnership](https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/).
-The JCT does not own most of the underlying data; it draws on
-[several sources](https://journalcheckertool.org/data-sources/) — ESAC,
-[DOAJ](https://doaj.org/), ROR, Crossref and Open Access Button — each updated at
-the source. Corrections to the agreement index go through the JCT helpdesk,
+Maintenance is a distributed partnership. The JCT does not own most of the
+underlying data; it draws on
+[several sources](https://journalcheckertool.org/data-sources/) — ESAC for the
+agreements, plus ROR, Crossref and [DOAJ](https://doaj.org/) for identifiers and
+journal data — each updated at the source. Corrections to the agreement index go through the JCT helpdesk,
 while portfolio-level changes are submitted back to the original data source.
 
 ## What the dates and identifiers mean
 
 Because curation happens in periodic review cycles rather than as a live feed,
-the "First Seen" and "Last Seen" dates are **observational**: they record
-[when the JCT team first or last observed](https://journalcheckertool.org/transformative-agreements/)
+the dates in the data are **observational**. Upstream, the JCT records
+when it first and last observed
 a journal or institution to be part of an agreement — not the actual date it
-joined or left, which the JCT does not have.
+joined or left, which the JCT does not have. The agreement-level date this site
+carries, `last_reviewed`, is the same kind of figure: it marks when the JCT last
+reviewed the agreement, not when its journal or institution list last changed.
 
 Journals are identified by their print and online ISSNs, and institutions by
 [ROR identifier](https://ror.org/) where available — the same ROR linkage this
