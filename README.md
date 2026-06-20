@@ -1,6 +1,6 @@
 # TU9 Transformative Agreements
 
-Regularly updated metadata about **transformative agreements** for the
+Regularly updated metadata about transformative agreements for the
 [TU9](https://www.tu9.de/) universities – the alliance of nine leading German
 institutes of technology.
 
@@ -65,28 +65,28 @@ The TU9 institutions and their identifiers are listed in
 
 ## How an institution is matched
 
-An agreement is listed for a university when **any of that university's
-[ROR](https://ror.org/) identifiers** appears among the agreement's
-participating institutions. Matching is deliberately **strict — precision
-first**: an institution is represented only by ROR ids it explicitly claims.
+An agreement is listed for a university when any of that university's
+[ROR](https://ror.org/) identifiers appears among the agreement's
+participating institutions. Matching is deliberately strict — precision
+first: an institution is represented only by ROR ids it explicitly claims.
 
-An institution can have more than one ROR — most notably when its **library is a
-standalone organisation** with its own ROR. Two TU9 libraries are like this and
+An institution can have more than one ROR — most notably when its library is a
+standalone organisation with its own ROR. Two TU9 libraries are like this and
 are counted under their university:
 
 - Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65)
 - Leibniz Universität Hannover + [TIB](https://ror.org/04aj4c181)
 
-University **clinics** are intentionally left out: in this data they only appear
+University clinics are intentionally left out: in this data they only appear
 on agreements where the university itself is already a participant, so they add
 no coverage (verified, not assumed).
 
-To extend coverage, add the extra ROR identifier as a **new row in
-[`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug`** as the
+To extend coverage, add the extra ROR identifier as a new row in
+[`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug` as the
 institution it belongs to; the first row for a slug provides the display name.
 No code changes are needed.
 
-When adding a **brand-new institution** (a new `slug`), also add a matching row
+When adding a brand-new institution (a new `slug`), also add a matching row
 to [`data-raw/urls.csv`](data-raw/urls.csv) (`slug,url`) pointing to the
 institution's own page on open-access agreements and funding support. A slug
 without a row simply renders without that link.
@@ -100,12 +100,12 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ─�
 
 1. `scripts/fetch.R` reads the JCT index, downloads each agreement, keeps those
    with a TU9 participant, and writes all CSV views plus `data/meta.json`.
-2. A **guard rail** aborts the run without overwriting if the number of
+2. A guard rail aborts the run without overwriting if the number of
    agreements drops by more than 20 % compared to the committed data (protects
    against a bad fetch). Re-run from the Actions tab with *force* to override.
 3. `scripts/esac.R` enriches those agreements with name, publisher and
-   consortium from the ESAC TA Registry, writing `data/esac.csv`. It is **best
-   effort**: the registry is a snapshot behind a rotating share link, so any
+   consortium from the ESAC TA Registry, writing `data/esac.csv`. It is best
+   effort: the registry is a snapshot behind a rotating share link, so any
    download error is non-fatal — the last-good `data/esac.csv` is kept and the
    refresh continues. Bump the URL in `scripts/esac.R` when ESAC publishes a new
    registry.
@@ -116,9 +116,9 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ─�
 
 Two GitHub Actions workflows drive this:
 
-- [`refresh.yml`](.github/workflows/refresh.yml) — the **weekly cron**: fetches
+- [`refresh.yml`](.github/workflows/refresh.yml) — the weekly cron: fetches
   fresh data, commits it, then rebuilds and deploys the site.
-- [`pages.yml`](.github/workflows/pages.yml) — a **lightweight rebuild** that
+- [`pages.yml`](.github/workflows/pages.yml) — a lightweight rebuild that
   re-renders and deploys the site from the data already in the repo, *without*
   fetching. It runs automatically when site code is pushed to `main`, or on
   demand from the Actions tab — handy after a layout or wording change.

@@ -8,7 +8,7 @@ source("scripts/site_helpers.R")
 meta <- read_meta()
 ```
 
-This site lists **transformative-agreement** metadata for the
+This site lists transformative-agreement metadata for the
 [TU9](https://www.tu9.de/) universities — the alliance of leading German
 institutes of technology. The data comes from the
 [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
@@ -17,14 +17,14 @@ institutes of technology. The data comes from the
 automatically every week. Agreement names, publishers and consortia are enriched
 from the [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
 
-An agreement is listed for a university when **any of that university's
-[ROR](https://ror.org/) identifiers** appears among the agreement's
-participating institutions. Matching is intentionally **strict** (precision
+An agreement is listed for a university when any of that university's
+[ROR](https://ror.org/) identifiers appears among the agreement's
+participating institutions. Matching is intentionally strict (precision
 first): a university is represented only by ROR ids it explicitly claims. This
 includes a university's own library where that library has its own ROR — for
 example Dresden also counts agreements held by the [SLUB](https://ror.org/03wf51b65)
 and Hannover those held by the [TIB](https://ror.org/04aj4c181). University
-clinics are deliberately **not** counted: in this data they only ever appear on
+clinics are deliberately not counted: in this data they only ever appear on
 agreements where the university itself is already listed, so they add no
 coverage.
 
