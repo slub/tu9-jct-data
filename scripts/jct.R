@@ -37,8 +37,17 @@ jct_index_reader <- function() {
 # that one bad URL never aborts the whole run (the guard rail in fetch.R catches
 # systematic, large-scale failures instead).
 jct_agreement_reader <- function(data_url) {
+  tmp <- tempfile(fileext = ".csv")
+  on.exit(unlink(tmp), add = TRUE)
+
   tryCatch(
-    suppressWarnings(read_csv(url(data_url), col_types = cols(.default = col_character()))),
+    {
+      old_timeout <- getOption("timeout")
+      on.exit(options(timeout = old_timeout), add = TRUE)
+      options(timeout = max(60, old_timeout))
+      download.file(data_url, tmp, quiet = TRUE, mode = "wb")
+      suppressWarnings(read_csv(tmp, col_types = cols(.default = col_character())))
+    },
     error = function(e) {
       message("  could not read: ", data_url)
       NULL
