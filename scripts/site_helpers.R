@@ -117,6 +117,15 @@ inline_p <- function(...) {
   tags$p(HTML(paste0(parts, collapse = "")))
 }
 
+# A file name rendered as an inline `<code>` link. Passing tags$code() directly
+# as a child of tags$a() makes htmltools pretty-print the anchor across lines,
+# and the browser renders those newlines as spaces inside the link (e.g. the
+# underline running past "agreements.csv "). Rendering the code to an inline
+# HTML string keeps the whole link on one line.
+code_link <- function(href, file) {
+  tags$a(href = href, target = "_blank", HTML(as.character(tags$code(file))))
+}
+
 # Full body of a per-institution page. `url` is the institution's own page on
 # open-access agreements and funding support (from data-raw/urls.csv, passed in
 # by gen_pages.R); when absent the intro paragraph is omitted.
@@ -140,9 +149,9 @@ inst_page <- function(slug, url = NULL) {
       tags$a(href = "#journals", "unique journals"), "."),
     inline_p(
       "Download this institution's data as CSV: ",
-      tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", tags$code("agreements.csv")),
+      code_link(paste0(repo, "/agreements.csv"), "agreements.csv"),
       " · ",
-      tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", tags$code("journals.csv")),
+      code_link(paste0(repo, "/journals.csv"), "journals.csv"),
       "."),
     intro,
     tags$h2(id = "agreements", "Agreements"),
