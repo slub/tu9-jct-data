@@ -135,9 +135,9 @@ inst_page <- function(slug, url = NULL) {
     intro,
     inline_p(
       "Download this institution's data as CSV: ",
-      tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", "agreements.csv"),
+      tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", tags$code("agreements.csv")),
       " · ",
-      tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", "journals.csv"),
+      tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", tags$code("journals.csv")),
       "."),
     tags$h2(sprintf("Agreements (%d)", nrow(a))),
     agreements_table(a),
