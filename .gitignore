@@ -3,10 +3,13 @@ dev/
 # Quarto render output
 /_site/
 /.quarto/
+/site_libs/
 
 # Generated per-institution pages (recreated by scripts/gen_pages.R)
 /institutions/*.qmd
 !/institutions/index.qmd
+/institutions/*.rmarkdown
+/institutions/*.html
 
 **/*.quarto_ipynb
 
