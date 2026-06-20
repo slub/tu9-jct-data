@@ -135,7 +135,7 @@ inst_page <- function(slug, url = NULL) {
   repo <- sprintf("https://github.com/slub/tu9-jct-data/blob/main/data/%s", slug)
   intro <- if (!is.null(url) && !is.na(url) && nzchar(url)) {
     inline_p(
-      "The library provides further details on its ",
+      "The library provides further details on this institution's ",
       tags$a(href = url, target = "_blank",
              "open-access agreements and funding support"),
       ".")
@@ -143,10 +143,10 @@ inst_page <- function(slug, url = NULL) {
   n_journals <- nrow(unique(j[c("title", "eissn", "pissn")]))
   tagList(
     inline_p(
-      "This institution takes part in ", tags$strong(nrow(a)), " ",
-      tags$a(href = "#agreements", "transformative agreements"),
-      " covering ", tags$strong(n_journals), " ",
-      tags$a(href = "#journals", "unique journals"), "."),
+      "This institution takes part in ", tags$strong(nrow(a)),
+      " transformative ", tags$a(href = "#agreements", "agreements"),
+      " covering ", tags$strong(n_journals),
+      " unique ", tags$a(href = "#journals", "journals"), "."),
     inline_p(
       "Download this institution's data as CSV: ",
       code_link(paste0(repo, "/agreements.csv"), "agreements.csv"),
