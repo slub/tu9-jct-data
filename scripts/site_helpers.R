@@ -131,6 +131,7 @@ inst_page <- function(slug, url = NULL) {
              "open-access agreements and funding support"),
       ".")
   }
+  n_journals <- nrow(unique(j[c("title", "eissn", "pissn")]))
   tagList(
     intro,
     inline_p(
@@ -139,9 +140,13 @@ inst_page <- function(slug, url = NULL) {
       " · ",
       tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", tags$code("journals.csv")),
       "."),
-    tags$h2(sprintf("Agreements (%d)", nrow(a))),
+    inline_p(
+      "This institution takes part in ", tags$strong(nrow(a)),
+      " transformative agreements covering ", tags$strong(n_journals),
+      " unique journals."),
+    tags$h2("Agreements"),
     agreements_table(a),
-    tags$h2(sprintf("Journals (%d unique)", nrow(unique(j[c("title", "eissn", "pissn")])))),
+    tags$h2("Journals"),
     journals_table(j)
   )
 }
