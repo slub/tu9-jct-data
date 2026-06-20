@@ -89,3 +89,13 @@ missed about half of the true cases (53% recall)
 ([de Jonge, Kramer & Sondervan 2025](https://doi.org/10.1162/qss.a.24)). Treat
 the numbers here as a precise but conservative lower bound on TU9 participation,
 not a guarantee of every title or institution covered.
+
+## References
+
+- de Jonge, H., Kramer, B., & Sondervan, J. (2025). Tracking transformative
+  agreements through open metadata: Method and validation using Dutch Research
+  Council NWO funded papers. *Quantitative Science Studies*, 6, 1215–1227.
+  <https://doi.org/10.1162/qss.a.24>
+- Jahn, N. (2025). How open are hybrid journals included in transformative
+  agreements? *Quantitative Science Studies*, 6, 242–262.
+  <https://doi.org/10.1162/qss_a_00348>
