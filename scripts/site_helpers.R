@@ -74,7 +74,7 @@ agreements_table <- function(df) {
   df <- with_esac(df)
   reactable(
     df[, c("name", "esac_id", "publisher", "relationship",
-           "end_date", "last_reviewed", "members", "data_url")],
+           "end_date", "members", "data_url")],
     searchable = TRUE, filterable = TRUE, sortable = TRUE,
     defaultPageSize = 25, showPageSizeOptions = TRUE, highlight = TRUE,
     columns = list(
@@ -83,7 +83,6 @@ agreements_table <- function(df) {
       publisher     = colDef(name = "Publisher", minWidth = 150),
       relationship  = colDef(name = "Relationship"),
       end_date      = colDef(name = "End date", minWidth = 90),
-      last_reviewed = colDef(name = "Last reviewed", minWidth = 100),
       members       = colDef(name = "TU9 members", cell = members_cell),
       data_url      = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110)
     )
