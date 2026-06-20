@@ -28,6 +28,11 @@ website:
         text: Journals
       - href: institutions/index.qmd
         text: Institutions
+    right:
+      - icon: github
+        href: https://github.com/slub/tu9-jct-data
+        text: Code & data
+        aria-label: GitHub repository (source of truth for code and data)
   page-footer:
     left: "Data: Journal Checker Tool (CC0) · Code: MIT"
     right: "Built with Quarto"
