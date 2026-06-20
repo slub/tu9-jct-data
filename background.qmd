@@ -77,11 +77,12 @@ Completeness depends on consortia choosing to register their agreements and to
 respond to the JCT's requests, and some register without disclosing every
 detail: the public data dump is a voluntary effort built on the contracts
 consortia have publicly disclosed, crowd-sourced from agreement documents and
-consortia ([Jahn 2025](https://doi.org/10.1162/qss_a_00348)). Only fully
-reviewed agreements that meet the
-[Plan S compliance guide](https://journalcheckertool.org/faq/) appear in the
-public index, and an expired agreement is dropped about three months after it
-ends — so the data is a curated snapshot, not a complete or historical record.
+consortia ([Jahn 2025](https://doi.org/10.1162/qss_a_00348)). Only agreements
+that have been
+[fully reviewed and confirmed Plan S compliant](https://journalcheckertool.org/transformative-agreements/)
+appear in the public index, and an expired agreement is
+[dropped about three months after it ends](https://journalcheckertool.org/faq/)
+— so the data is a curated snapshot, not a complete or historical record.
 Independent validation is nonetheless encouraging: when an open method built on
 the JCT and OpenAlex was checked against real publisher data, 89% of the
 agreement matches it made were correct (precision; 2,054 of 2,304), though it
@@ -89,6 +90,16 @@ missed about half of the true cases (53% recall)
 ([de Jonge, Kramer & Sondervan 2025](https://doi.org/10.1162/qss.a.24)). Treat
 the numbers here as a precise but conservative lower bound on TU9 participation,
 not a guarantee of every title or institution covered.
+
+Finally, this site reflects only the JCT's transformative-agreement data. It is
+**not a substitute for a full JCT compliance check**, which evaluates a specific
+funder, institution, journal and author role — and which also recognises other
+routes to compliance such as fully open-access journals, self-archiving with
+rights retention, and transformative journals. Eligibility is also narrower than
+an agreement's title list suggests: these agreements cover OA only for articles
+where the TU9 author is the corresponding author — in the current data, every
+one is flagged this way (kept as the `ca_only` field in the downloadable
+agreements CSV).
 
 ## References
 

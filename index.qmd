@@ -8,14 +8,15 @@ source("scripts/site_helpers.R")
 meta <- read_meta()
 ```
 
-This site lists transformative-agreement metadata for the
-[TU9](https://www.tu9.de/) universities — the alliance of leading German
-institutes of technology. The data comes from the
+This site is a TU9 view of the
 [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
-("Transformative Agreements Public Data", released under
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/)) and is refreshed
-automatically every week. Agreement names, publishers and consortia are enriched
-from the [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
+(JCT) Plan S-compliant transformative-agreement index — one route to compliance,
+not a full compliance check (see [Background](background.qmd)). It covers the
+[TU9](https://www.tu9.de/) universities — the alliance of leading German
+institutes of technology. The data ("Transformative Agreements Public Data",
+released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)) is
+refreshed automatically every week. Agreement names, publishers and consortia are
+enriched from the [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
 
 An agreement is listed for a university when any of that university's
 [ROR](https://ror.org/) identifiers appears among the agreement's
