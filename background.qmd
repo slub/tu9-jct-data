@@ -12,7 +12,7 @@ publishers.
 ## The chain of provenance
 
 1. A publisher and a library consortium (or a single institution) negotiate a
-   transformative agreement.
+   [transformative agreement](https://esac-initiative.org/about/transformative-agreements/).
 2. A consortium or institution registers the agreement in the
    [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/),
    a community-curated registry of agreements between publishers and academic
