@@ -36,15 +36,18 @@ agreement_rows <- list()
 journal_rows <- list()
 
 for (k in seq_along(urls)) {
+  if (k %% 10 == 1) message("  ... inspecting ", k, "/", length(urls))
   data_url <- urls[k]
   df <- jct_agreement_reader(data_url)
   if (is.null(df) || ncol(df) < 9) next
 
   inst <- jct_agreement_institutions(df)
   hit_rors <- ror_bare(inst$`ROR ID`)
-  members <- sort(unique(ror_to_slug[hit_rors[hit_rors %in% names(ror_to_slug)]]))
-  if (length(members) == 0) next            # no TU9 institution -> skip
-  members_str <- paste(members, collapse = ";")
+  member_rors <- sort(unique(hit_rors[hit_rors %in% names(ror_to_slug)]))
+  member_slugs <- sort(unique(ror_to_slug[member_rors]))
+  if (length(member_slugs) == 0) next       # no TU9 institution -> skip
+  members_slug_str <- paste(member_slugs, collapse = ";")
+  members_ror_str <- paste(member_rors, collapse = ";")
 
   meta <- idx[idx$`Data URL` == data_url, ][1, ]
   agreement_rows[[length(agreement_rows) + 1L]] <- tibble(
@@ -53,7 +56,8 @@ for (k in seq_along(urls)) {
     end_date      = as.character(meta$`End Date`),
     last_reviewed = as.character(meta$`Last Reviewed`),
     data_url      = data_url,
-    members       = members_str
+    members_slug  = members_slug_str,
+    members_ror   = members_ror_str
   )
 
   jr <- jct_agreement_journals(df)
@@ -64,7 +68,8 @@ for (k in seq_along(urls)) {
       pissn   = jr$`ISSN (Print)`,
       esac_id  = meta$`ESAC ID`,
       data_url = data_url,
-      members  = members_str
+      members_slug = members_slug_str,
+      members_ror = members_ror_str
     )
   }
   if (k %% 50 == 0) message("  ... inspected ", k, "/", length(urls))
@@ -111,8 +116,8 @@ for (i in seq_len(nrow(institutions))) {
   out_dir <- file.path("data", slug)
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
-  a_i <- agreements[has_member(agreements$members, slug), ]
-  j_i <- journals[has_member(journals$members, slug), ]
+  a_i <- agreements[has_member(agreements$members_slug, slug), ]
+  j_i <- journals[has_member(journals$members_slug, slug), ]
   write_csv(a_i, file.path(out_dir, "agreements.csv"), na = "")
   write_csv(j_i, file.path(out_dir, "journals.csv"),   na = "")
 

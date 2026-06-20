@@ -63,7 +63,7 @@ sheet_cell <- function(label = "Google Sheets") {
   }
 }
 
-# Show semicolon-separated member slugs as small badges.
+# Show semicolon-separated member slugs as a readable list.
 members_cell <- function(value) {
   if (is.na(value) || value == "") return("")
   slugs <- strsplit(value, ";", fixed = TRUE)[[1]]
@@ -74,7 +74,7 @@ agreements_table <- function(df) {
   df <- with_esac(df)
   reactable(
     df[, c("name", "esac_id", "publisher", "relationship",
-           "end_date", "members", "data_url")],
+           "end_date", "members_slug", "data_url")],
     searchable = TRUE, filterable = TRUE, sortable = TRUE,
     defaultPageSize = 25, showPageSizeOptions = TRUE, highlight = TRUE,
     columns = list(
@@ -83,7 +83,7 @@ agreements_table <- function(df) {
       publisher     = colDef(name = "Publisher", minWidth = 150),
       relationship  = colDef(name = "Relationship"),
       end_date      = colDef(name = "End date", minWidth = 90),
-      members       = colDef(name = "TU9 members", cell = members_cell),
+      members_slug  = colDef(name = "TU9 members", cell = members_cell),
       data_url      = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110)
     )
   )
@@ -92,7 +92,7 @@ agreements_table <- function(df) {
 journals_table <- function(df) {
   df <- with_esac(df)
   reactable(
-    df[, c("title", "eissn", "pissn", "name", "esac_id", "members", "data_url")],
+    df[, c("title", "eissn", "pissn", "name", "esac_id", "members_slug", "data_url")],
     searchable = TRUE, filterable = TRUE, sortable = TRUE,
     defaultPageSize = 25, showPageSizeOptions = TRUE, highlight = TRUE,
     columns = list(
@@ -101,7 +101,7 @@ journals_table <- function(df) {
       pissn   = colDef(name = "ISSN (print)", cell = issn_cell, html = TRUE, minWidth = 110),
       name    = colDef(name = "Agreement", minWidth = 150),
       esac_id = colDef(name = "ESAC ID", cell = esac_cell, html = TRUE, minWidth = 130),
-      members = colDef(name = "TU9 members", cell = members_cell),
+      members_slug = colDef(name = "TU9 members", cell = members_cell),
       data_url = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110)
     )
   )

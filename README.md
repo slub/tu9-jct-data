@@ -43,7 +43,8 @@ The pipeline inputs live in `data-raw/`:
 | `end_date` | Agreement end date |
 | `last_reviewed` | When the JCT entry was last reviewed |
 | `data_url` | Source CSV for this agreement sub-package |
-| `members` | TU9 institutions participating (semicolon-separated slugs) |
+| `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
+| `members_ror` | Exact matched ROR ids for those TU9 participants |
 
 #### `journals.csv`
 
@@ -54,7 +55,8 @@ The pipeline inputs live in `data-raw/`:
 | `pissn` | ISSN (print) |
 | `esac_id` | Agreement the journal is covered by |
 | `data_url` | Source CSV for that agreement sub-package |
-| `members` | TU9 institutions participating |
+| `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
+| `members_ror` | Exact matched ROR ids for those TU9 participants |
 
 #### `esac.csv`
 
