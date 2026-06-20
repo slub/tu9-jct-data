@@ -133,18 +133,18 @@ inst_page <- function(slug, url = NULL) {
   }
   n_journals <- nrow(unique(j[c("title", "eissn", "pissn")]))
   tagList(
-    intro,
+    inline_p(
+      "This institution takes part in ", tags$strong(nrow(a)), " ",
+      tags$a(href = "#agreements", "transformative agreements"),
+      " covering ", tags$strong(n_journals), " ",
+      tags$a(href = "#journals", "unique journals"), "."),
     inline_p(
       "Download this institution's data as CSV: ",
       tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", tags$code("agreements.csv")),
       " · ",
       tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", tags$code("journals.csv")),
       "."),
-    inline_p(
-      "This institution takes part in ", tags$strong(nrow(a)), " ",
-      tags$a(href = "#agreements", "transformative agreements"),
-      " covering ", tags$strong(n_journals), " ",
-      tags$a(href = "#journals", "unique journals"), "."),
+    intro,
     tags$h2(id = "agreements", "Agreements"),
     agreements_table(a),
     tags$h2(id = "journals", "Journals"),
