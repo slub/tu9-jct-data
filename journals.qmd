@@ -9,6 +9,8 @@ source("scripts/site_helpers.R")
 Every journal covered by an agreement in which at least one TU9 university takes
 part. A journal can appear under more than one agreement.
 
+Download this data as CSV: [`journals.csv`](https://github.com/slub/tu9-jct-data/blob/main/data/journals.csv).
+
 ```{r}
 journals_table(read_data("journals.csv"))
 ```
