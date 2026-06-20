@@ -13,7 +13,7 @@ publishers.
 
 1. A publisher and a library consortium (or a single institution) negotiate a
    transformative agreement.
-2. A consortium or institution **voluntarily** registers the agreement in the
+2. A consortium or institution registers the agreement in the
    [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/),
    a community-curated registry of agreements between publishers and academic
    institutions. Sharing the terms is
@@ -47,12 +47,16 @@ between an agreement and its journal and institution lists: a single agreement
 can give different institutions access to different sets of titles, which the
 JCT records in its own per-agreement sheets.
 
-Maintenance is a distributed partnership. The JCT does not own most of the
-underlying data; it draws on
-[several sources](https://journalcheckertool.org/data-sources/) — ESAC for the
-agreements, plus ROR, Crossref and [DOAJ](https://doaj.org/) for identifiers and
-journal data — each updated at the source. Corrections to the agreement index go through the JCT helpdesk,
-while portfolio-level changes are submitted back to the original data source.
+Maintenance is a distributed partnership, and the JCT does not own most of the
+underlying data. The transformative-agreement records combine the agreements
+from the ESAC registry with the participating institutions' ROR identifiers; the
+journals themselves are listed by name and ISSN in the consortia's own
+per-agreement sheets. The JCT's
+[other data sources](https://journalcheckertool.org/data-sources/) serve the
+wider tool rather than this dataset — Crossref backs its journal-title search and
+DOAJ its separate fully-open-access compliance check. Corrections to the
+agreement index go through the JCT helpdesk, while portfolio-level changes are
+submitted back to the original data source.
 
 ## What the dates and identifiers mean
 
@@ -73,7 +77,7 @@ site relies on to match an agreement to a TU9 university.
 The coverage figures on this site inherit the limits of their source.
 Completeness depends on consortia choosing to register their agreements and to
 respond to the JCT's requests, and some
-[register without disclosing every detail](https://arxiv.org/abs/2402.18255):
+[register without disclosing every detail](https://doi.org/10.1162/qss_a_00348):
 the public data dump is a voluntary effort built on the contracts consortia have
 publicly disclosed, crowd-sourced from agreement documents and consortia (Jahn
 2025). Only fully reviewed agreements that meet the
@@ -82,7 +86,7 @@ public index, and an expired agreement is dropped about three months after it
 ends — so the data is a curated snapshot, not a complete or historical record.
 Independent validation is nonetheless encouraging: when an open method built on
 the JCT and OpenAlex was checked against real publisher data,
-[89% of the agreement matches it made were correct](https://doi.org/10.1162/QSS.a.24)
+[89% of the agreement matches it made were correct](https://doi.org/10.1162/qss.a.24)
 (precision; 2,054 of 2,304), though it missed about half of the true cases (53%
 recall) (de Jonge, Kramer & Sondervan 2025). Treat the numbers here as a precise
 but conservative lower bound on TU9 participation, not a guarantee of every title
