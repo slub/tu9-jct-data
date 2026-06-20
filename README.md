@@ -16,17 +16,21 @@ names, publishers and consortia are enriched from the
 
 ## What you get
 
-Three views of the same data:
+Two views — agreements and the journals they cover — for all TU9 universities
+and per institution:
 
 | View | Files |
 | --- | --- |
 | **All agreements** with at least one TU9 participant | [`data/agreements.csv`](data/agreements.csv) |
 | **All journals** covered by those agreements | [`data/journals.csv`](data/journals.csv) |
-| **ESAC metadata** for those agreements (name, publisher, …) | [`data/esac.csv`](data/esac.csv) |
-| **Per institution** — one folder each | `data/<institution>/agreements.csv` and `journals.csv` |
+| **Per institution** — the same two views, one folder each | `data/<institution>/agreements.csv` and `journals.csv` |
 
-The TU9 institutions and their identifiers are listed in
-[`data-raw/orgs.csv`](data-raw/orgs.csv).
+Plus [`data/esac.csv`](data/esac.csv) — ESAC registry metadata (id, name,
+publisher, consortium, dates) used to enrich the agreements.
+
+The pipeline inputs live in `data-raw/`:
+[`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR identifiers) and
+[`urls.csv`](data-raw/urls.csv) (each library's open-access funding page).
 
 ### Columns
 
