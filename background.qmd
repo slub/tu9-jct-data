@@ -64,9 +64,7 @@ Because curation happens in periodic review cycles rather than as a live feed,
 the dates in the data are **observational**. Upstream, the JCT records
 when it first and last observed
 a journal or institution to be part of an agreement — not the actual date it
-joined or left, which the JCT does not have. The agreement-level date this site
-carries, `last_reviewed`, is the same kind of figure: it marks when the JCT last
-reviewed the agreement, not when its journal or institution list last changed.
+joined or left, which the JCT does not have.
 
 Journals are identified by their print and online ISSNs, and institutions by
 [ROR identifier](https://ror.org/) where available — the same ROR linkage this
