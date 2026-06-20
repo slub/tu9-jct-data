@@ -141,12 +141,13 @@ inst_page <- function(slug, url = NULL) {
       tags$a(href = paste0(repo, "/journals.csv"), target = "_blank", tags$code("journals.csv")),
       "."),
     inline_p(
-      "This institution takes part in ", tags$strong(nrow(a)),
-      " transformative agreements covering ", tags$strong(n_journals),
-      " unique journals."),
-    tags$h2("Agreements"),
+      "This institution takes part in ", tags$strong(nrow(a)), " ",
+      tags$a(href = "#agreements", "transformative agreements"),
+      " covering ", tags$strong(n_journals), " ",
+      tags$a(href = "#journals", "unique journals"), "."),
+    tags$h2(id = "agreements", "Agreements"),
     agreements_table(a),
-    tags$h2("Journals"),
+    tags$h2(id = "journals", "Journals"),
     journals_table(j)
   )
 }
