@@ -1,0 +1,87 @@
+---
+title: "Background"
+---
+
+This site is a thin layer over data curated by the
+[Journal Checker Tool](https://journalcheckertool.org/) (JCT). It helps to know
+how that underlying data is assembled, because the linkage between an agreement,
+the institutions that take part in it, and the journals it covers is the product
+of a voluntary, partly manual, curated process — not an authoritative feed from
+publishers.
+
+## The chain of provenance
+
+1. A publisher and a library consortium (or a single institution) negotiate a
+   transformative agreement.
+2. A consortium or institution **voluntarily** registers the agreement in the
+   [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/),
+   a community-curated registry of agreements between publishers and academic
+   institutions. Sharing the terms is
+   [entirely voluntary](https://esac-initiative.org/about/transformative-agreements/share/),
+   and consortium-level agreements are registered at the consortium level rather
+   than by each member institution.
+3. The JCT data-management team
+   [crawls the ESAC registry weekly](https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/).
+   When it finds a new agreement, it reaches out to the consortium to obtain the
+   list of titles covered and which institutions have access, then publishes the
+   result in the JCT within about ten working days.
+4. The JCT exposes this as CC0
+   ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
+   and an [API](https://journalcheckertool.org/apidocs).
+5. This site consumes that public data and matches agreements to TU9
+   universities by ROR identifier.
+
+## How the JCT curates it
+
+The crucial step is the third one. ESAC alone does not yield a clean list of
+named participating institutions: registration is at the consortium level, and
+contributors submit
+[whatever level of detail they are comfortable providing](https://esac-initiative.org/about/transformative-agreements/share/).
+The participating-institution list is therefore obtained by the JCT team
+contacting consortia directly and curating the result by hand — it is not
+scraped from publishers.
+
+There is also
+[no fixed one-to-one relationship](https://www.coalition-s.org/blog/introducing-new-search-features-in-the-journal-checker-tool-for-transformative-agreements/)
+between an agreement and its journal and institution lists: a single agreement
+can give different institutions access to different sets of titles, which the
+JCT records in its own per-agreement sheets.
+
+Maintenance is a
+[distributed partnership](https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/).
+The JCT does not own most of the underlying data; it draws on
+[several sources](https://journalcheckertool.org/data-sources/) — ESAC,
+[DOAJ](https://doaj.org/), ROR, Crossref and Open Access Button — each updated at
+the source. Corrections to the agreement index go through the JCT helpdesk,
+while portfolio-level changes are submitted back to the original data source.
+
+## What the dates and identifiers mean
+
+Because curation happens in periodic review cycles rather than as a live feed,
+the "First Seen" and "Last Seen" dates are **observational**: they record
+[when the JCT team first or last observed](https://journalcheckertool.org/transformative-agreements/)
+a journal or institution to be part of an agreement — not the actual date it
+joined or left, which the JCT does not have.
+
+Journals are identified by their print and online ISSNs, and institutions by
+[ROR identifier](https://ror.org/) where available — the same ROR linkage this
+site relies on to match an agreement to a TU9 university.
+
+## Caveats
+
+The coverage figures on this site inherit the limits of their source.
+Completeness depends on consortia choosing to register their agreements and to
+respond to the JCT's requests, and some disclose only minimal detail. Only fully
+reviewed agreements that meet the
+[ESAC compliance guidelines](https://journalcheckertool.org/faq/) appear in the
+public index, and an expired agreement is dropped about three months after it
+ends — so the data is a curated snapshot, not a complete or historical record.
+Independent validation is nonetheless encouraging: an open method built on the
+JCT and OpenAlex
+[correctly attributed 89% of articles](https://doi.org/10.1162/QSS.a.24)
+(2,054 of 2,304) to the right transformative agreement when checked against real
+publisher data (de Jonge, Kramer & Sondervan 2025); related work documents how
+unevenly hybrid-journal openness is disclosed across agreements
+([Jahn 2025](https://arxiv.org/abs/2402.18255)). Treat the numbers here as a
+precise, conservative lower bound on TU9 participation, not a guarantee of every
+title or institution covered.

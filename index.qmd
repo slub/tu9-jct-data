@@ -28,6 +28,9 @@ clinics are deliberately not counted: in this data they only ever appear on
 agreements where the university itself is already listed, so they add no
 coverage.
 
+For how the JCT assembles these institution and journal lists — a voluntary,
+curated, partly manual process — see [Background](background.qmd).
+
 ```{r}
 #| echo: false
 #| output: asis
