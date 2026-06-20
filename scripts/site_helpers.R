@@ -92,7 +92,7 @@ agreements_table <- function(df) {
 journals_table <- function(df) {
   df <- with_esac(df)
   reactable(
-    df[, c("title", "eissn", "pissn", "name", "esac_id", "url", "members")],
+    df[, c("title", "eissn", "pissn", "name", "esac_id", "members", "url")],
     searchable = TRUE, filterable = TRUE, sortable = TRUE,
     defaultPageSize = 25, showPageSizeOptions = TRUE, highlight = TRUE,
     columns = list(
@@ -101,8 +101,8 @@ journals_table <- function(df) {
       pissn   = colDef(name = "ISSN (print)", cell = issn_cell, html = TRUE, minWidth = 110),
       name    = colDef(name = "Agreement", minWidth = 150),
       esac_id = colDef(name = "ESAC ID", cell = esac_cell, html = TRUE, minWidth = 130),
-      url     = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110),
-      members = colDef(name = "TU9 members", cell = members_cell)
+      members = colDef(name = "TU9 members", cell = members_cell),
+      url     = colDef(name = "Source", cell = sheet_cell(), html = TRUE, minWidth = 110)
     )
   )
 }
