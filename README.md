@@ -11,7 +11,7 @@ and published both as plain CSV files and as a browsable website. Agreement
 names, publishers and consortia are enriched from the
 [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
 
-📊 **Website:** https://slub.github.io/tu9-jct-data/
+📊 **Website:** https://slub.github.io/tu9-jct-data/  
 📁 **Data:** the [`data/`](data/) directory of this repository
 
 ## What you get
