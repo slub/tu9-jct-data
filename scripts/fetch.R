@@ -53,6 +53,7 @@ for (k in seq_along(urls)) {
   agreement_rows[[length(agreement_rows) + 1L]] <- tibble(
     esac_id       = meta$`ESAC ID`,
     relationship  = meta$Relationship,
+    ca_only       = meta$`C/A Only`,
     end_date      = as.character(meta$`End Date`),
     last_reviewed = as.character(meta$`Last Reviewed`),
     data_url      = data_url,

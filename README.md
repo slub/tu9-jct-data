@@ -40,6 +40,7 @@ The pipeline inputs live in `data-raw/`:
 | --- | --- |
 | `esac_id` | ESAC registry identifier of the agreement |
 | `relationship` | Sub-package / relationship within the agreement |
+| `ca_only` | Corresponding-author-only: OA covered only when the TU9 author is the corresponding author |
 | `end_date` | Agreement end date |
 | `last_reviewed` | When the JCT entry was last reviewed |
 | `data_url` | Source CSV for this agreement sub-package |
