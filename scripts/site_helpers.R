@@ -107,6 +107,16 @@ journals_table <- function(df) {
   )
 }
 
+# Compose an inline paragraph from text and tag pieces as a single HTML node.
+# Building the children with tags$p() directly makes htmltools pretty-print each
+# child on its own line, and the browser then renders the newline before trailing
+# punctuation as a stray space (e.g. "journals.csv ."). Gluing the rendered parts
+# avoids that.
+inline_p <- function(...) {
+  parts <- vapply(list(...), as.character, character(1))
+  tags$p(HTML(paste0(parts, collapse = "")))
+}
+
 # Full body of a per-institution page. `url` is the institution's own page on
 # open-access agreements and funding support (from data-raw/urls.csv, passed in
 # by gen_pages.R); when absent the intro paragraph is omitted.
@@ -115,7 +125,7 @@ inst_page <- function(slug, url = NULL) {
   j <- read_data(slug, "journals.csv")
   repo <- sprintf("https://github.com/slub/tu9-jct-data/blob/main/data/%s", slug)
   intro <- if (!is.null(url) && !is.na(url) && nzchar(url)) {
-    tags$p(
+    inline_p(
       "The library provides further details on its ",
       tags$a(href = url, target = "_blank",
              "open-access agreements and funding support"),
@@ -123,7 +133,7 @@ inst_page <- function(slug, url = NULL) {
   }
   tagList(
     intro,
-    tags$p(
+    inline_p(
       "Download this institution's data as CSV: ",
       tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", "agreements.csv"),
       " · ",
