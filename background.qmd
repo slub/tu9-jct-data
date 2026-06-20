@@ -74,18 +74,18 @@ site relies on to match an agreement to a TU9 university.
 
 The coverage figures on this site inherit the limits of their source.
 Completeness depends on consortia choosing to register their agreements and to
-respond to the JCT's requests, and some
-[register without disclosing every detail](https://doi.org/10.1162/qss_a_00348):
-the public data dump is a voluntary effort built on the contracts consortia have
-publicly disclosed, crowd-sourced from agreement documents and consortia (Jahn
-2025). Only fully reviewed agreements that meet the
-[ESAC compliance guidelines](https://journalcheckertool.org/faq/) appear in the
+respond to the JCT's requests, and some register without disclosing every
+detail: the public data dump is a voluntary effort built on the contracts
+consortia have publicly disclosed, crowd-sourced from agreement documents and
+consortia ([Jahn 2025](https://doi.org/10.1162/qss_a_00348)). Only fully
+reviewed agreements that meet the
+[Plan S compliance guide](https://journalcheckertool.org/faq/) appear in the
 public index, and an expired agreement is dropped about three months after it
 ends — so the data is a curated snapshot, not a complete or historical record.
 Independent validation is nonetheless encouraging: when an open method built on
-the JCT and OpenAlex was checked against real publisher data,
-[89% of the agreement matches it made were correct](https://doi.org/10.1162/qss.a.24)
-(precision; 2,054 of 2,304), though it missed about half of the true cases (53%
-recall) (de Jonge, Kramer & Sondervan 2025). Treat the numbers here as a precise
-but conservative lower bound on TU9 participation, not a guarantee of every title
-or institution covered.
+the JCT and OpenAlex was checked against real publisher data, 89% of the
+agreement matches it made were correct (precision; 2,054 of 2,304), though it
+missed about half of the true cases (53% recall)
+([de Jonge, Kramer & Sondervan 2025](https://doi.org/10.1162/qss.a.24)). Treat
+the numbers here as a precise but conservative lower bound on TU9 participation,
+not a guarantee of every title or institution covered.
