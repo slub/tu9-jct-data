@@ -30,7 +30,7 @@ The TU9 institutions and their identifiers are listed in
 
 ### Columns
 
-`agreements.csv`
+#### `agreements.csv`
 
 | Column | Meaning |
 | --- | --- |
@@ -41,7 +41,7 @@ The TU9 institutions and their identifiers are listed in
 | `data_url` | Source CSV for this agreement sub-package |
 | `members` | TU9 institutions participating (semicolon-separated slugs) |
 
-`journals.csv`
+#### `journals.csv`
 
 | Column | Meaning |
 | --- | --- |
@@ -52,7 +52,7 @@ The TU9 institutions and their identifiers are listed in
 | `url` | Source CSV for that agreement sub-package |
 | `members` | TU9 institutions participating |
 
-`esac.csv` (from the [ESAC TA Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/))
+#### `esac.csv`
 
 | Column | Meaning |
 | --- | --- |
