@@ -53,7 +53,7 @@ The pipeline inputs live in `data-raw/`:
 | `eissn` | ISSN (online) |
 | `pissn` | ISSN (print) |
 | `esac_id` | Agreement the journal is covered by |
-| `url` | Source CSV for that agreement sub-package |
+| `data_url` | Source CSV for that agreement sub-package |
 | `members` | TU9 institutions participating |
 
 #### `esac.csv`

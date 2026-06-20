@@ -62,9 +62,9 @@ for (k in seq_along(urls)) {
       title   = jr$`Journal Name`,
       eissn   = jr$`ISSN (Online)`,
       pissn   = jr$`ISSN (Print)`,
-      esac_id = meta$`ESAC ID`,
-      url     = data_url,
-      members = members_str
+      esac_id  = meta$`ESAC ID`,
+      data_url = data_url,
+      members  = members_str
     )
   }
   if (k %% 50 == 0) message("  ... inspected ", k, "/", length(urls))
