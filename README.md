@@ -84,6 +84,11 @@ To extend coverage, add the extra ROR identifier as a **new row in
 institution it belongs to; the first row for a slug provides the display name.
 No code changes are needed.
 
+When adding a **brand-new institution** (a new `slug`), also add a matching row
+to [`data-raw/urls.csv`](data-raw/urls.csv) (`slug,url`) pointing to the
+institution's own page on open-access agreements and funding support. A slug
+without a row simply renders without that link.
+
 ## How it works
 
 ```
@@ -102,7 +107,9 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ─�
    download error is non-fatal — the last-good `data/esac.csv` is kept and the
    refresh continues. Bump the URL in `scripts/esac.R` when ESAC publishes a new
    registry.
-4. `scripts/gen_pages.R` creates one Quarto page per institution.
+4. `scripts/gen_pages.R` creates one Quarto page per institution, linking each
+   to the institution's own page on open-access agreements and funding support
+   from [`data-raw/urls.csv`](data-raw/urls.csv) (matched by `slug`).
 5. The site is rendered and deployed to GitHub Pages.
 
 Two GitHub Actions workflows drive this:

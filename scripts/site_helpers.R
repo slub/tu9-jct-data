@@ -107,12 +107,22 @@ journals_table <- function(df) {
   )
 }
 
-# Full body of a per-institution page.
-inst_page <- function(slug) {
+# Full body of a per-institution page. `url` is the institution's own page on
+# open-access agreements and funding support (from data-raw/urls.csv, passed in
+# by gen_pages.R); when absent the intro paragraph is omitted.
+inst_page <- function(slug, url = NULL) {
   a <- read_data(slug, "agreements.csv")
   j <- read_data(slug, "journals.csv")
   repo <- sprintf("https://github.com/slub/tu9-jct-data/blob/main/data/%s", slug)
+  intro <- if (!is.null(url) && !is.na(url) && nzchar(url)) {
+    tags$p(
+      "The library provides further details on its ",
+      tags$a(href = url, target = "_blank",
+             "open-access agreements and funding support"),
+      ".")
+  }
   tagList(
+    intro,
     tags$p(
       "Download this institution's data as CSV: ",
       tags$a(href = paste0(repo, "/agreements.csv"), target = "_blank", "agreements.csv"),
