@@ -2,11 +2,10 @@ project:
   type: website
   output-dir: _site
   execute-dir: project
-  # Copy the raw CSVs into the site so they are downloadable directly from
-  # GitHub Pages (e.g. https://slub.github.io/tu9-jct-data/data/agreements.csv).
-  resources:
-    - data
-    - data-raw
+  # Publish the data files into the site at clean, prefix-free URLs (no /data/
+  # or /data-raw/). See scripts/publish_data.R for the source -> URL mapping.
+  post-render:
+    - scripts/publish_data.R
 
 execute:
   echo: false
