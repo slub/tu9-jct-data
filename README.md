@@ -1,7 +1,7 @@
 # TU9 Transformative Agreements
 
 Regularly updated metadata about transformative agreements for the
-[TU9](https://www.tu9.de/) universities – the alliance of nine leading German
+[TU9](https://www.tu9.de/) universities — the alliance of nine leading German
 institutes of technology.
 
 The data is fetched from the
