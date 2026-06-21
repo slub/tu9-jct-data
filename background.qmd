@@ -17,10 +17,9 @@ publishers — so it helps to know how that data is assembled.
    Sharing the terms is
    [voluntary](https://esac-initiative.org/about/transformative-agreements/share/),
    and agreements are registered at the consortium level rather than per member.
-3. The JCT data team
-   [crawls ESAC weekly](https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/),
-   then contacts the consortium directly to obtain the covered titles and the
-   institutions that have access — this list is curated by hand, not scraped.
+3. The JCT data team crawls ESAC regularly, then contacts the consortium directly
+   to obtain the covered titles and the institutions that have access — this list
+   is curated by hand, not scraped (Hope 2020).
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    and an [API](https://journalcheckertool.org/apidocs).
@@ -29,8 +28,8 @@ publishers — so it helps to know how that data is assembled.
 
 A single agreement can give different institutions access to different sets of
 titles, which the JCT records in its own per-agreement sheets; there is
-[no fixed one-to-one relationship](https://www.coalition-s.org/blog/introducing-new-search-features-in-the-journal-checker-tool-for-transformative-agreements/)
-between an agreement and its journal and institution lists.
+no fixed one-to-one relationship between an agreement and its journal and
+institution lists (Kiley 2023).
 
 ## How this site matches agreements
 
@@ -55,17 +54,26 @@ Journals are identified by print and online ISSN, institutions by
 
 The figures here are a conservative lower bound: independent checks of this kind
 of JCT-based matching find it accurate but incomplete — high precision, lower
-recall (de Jonge, Kramer & Sondervan 2025).
+recall (de Jonge et al. 2025).
 Only agreements that have been fully reviewed and confirmed Plan S–compliant
-appear in the public index, an expired agreement is
-[dropped about three months after it ends](https://journalcheckertool.org/faq/),
-and coverage depends on consortia choosing to register and to respond to the
-JCT's requests — so this is a curated snapshot, not a complete or historical
-record. The agreements also cover open access only for articles where the TU9
-author is the corresponding author (the `ca_only` field in the agreements CSV).
+appear in the public index, an expired agreement is dropped about three months
+after it ends, and coverage depends on consortia choosing to register and to
+respond to the JCT's requests — so this is a curated snapshot, not a complete
+or historical record (JCT 2026). The public data is itself a voluntary
+compilation — built on the contracts consortia have publicly disclosed and
+crowd-sourced from agreement documents and the consortia themselves (Jahn 2025).
+The agreements also cover open access only for articles where the TU9 author is
+the corresponding author (the `ca_only` field in the agreements CSV).
 
-## Further reading
+## References
 
+- Hope, H. (2020). Enabling accurate results within the Journal Checker Tool.
+  *sOApbox, official blog of cOAlition S*, 18 November 2020.
+  <https://www.coalition-s.org/blog/enabling-accurate-results-within-the-journal-checker-tool/>
+- Kiley, R. (2023). Introducing new search features in the Journal Checker Tool
+  for Transformative Agreements. *sOApbox, official blog of cOAlition S*,
+  22 September 2023.
+  <https://www.coalition-s.org/blog/introducing-new-search-features-in-the-journal-checker-tool-for-transformative-agreements/>
 - de Jonge, H., Kramer, B., & Sondervan, J. (2025). Tracking transformative
   agreements through open metadata: Method and validation using Dutch Research
   Council NWO funded papers. *Quantitative Science Studies*, 6, 1215–1227.
@@ -73,3 +81,5 @@ author is the corresponding author (the `ca_only` field in the agreements CSV).
 - Jahn, N. (2025). How open are hybrid journals included in transformative
   agreements? *Quantitative Science Studies*, 6, 242–262.
   <https://doi.org/10.1162/qss_a_00348>
+- Journal Checker Tool. (2026). *FAQ*.
+  <https://journalcheckertool.org/faq/>
