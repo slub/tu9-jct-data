@@ -56,10 +56,11 @@ The figures here are a conservative lower bound: independent checks of this kind
 of JCT-based matching find it accurate but incomplete — high precision, lower
 recall (de Jonge et al. 2025).
 Only agreements that have been fully reviewed and confirmed Plan S–compliant
-appear in the public index, an expired agreement is dropped about three months
-after it ends, and coverage depends on consortia choosing to register and to
-respond to the JCT's requests — so this is a curated snapshot, not a complete
-or historical record (JCT 2026). The public data is itself a voluntary
+(JCT 2026b) appear in the public index, an expired agreement is dropped about
+three months after it ends (JCT 2026a), and coverage depends on consortia
+choosing to register and to respond to the JCT's requests — so this is a
+curated snapshot, not a complete or historical record. The public data is
+itself a voluntary
 compilation — built on the contracts consortia have publicly disclosed and
 crowd-sourced from agreement documents and the consortia themselves (Jahn 2025).
 The agreements also cover open access only for articles where the TU9 author is
@@ -81,5 +82,8 @@ the corresponding author (the `ca_only` field in the agreements CSV).
 - Jahn, N. (2025). How open are hybrid journals included in transformative
   agreements? *Quantitative Science Studies*, 6, 242–262.
   <https://doi.org/10.1162/qss_a_00348>
-- Journal Checker Tool. (2026). *FAQ*.
-  <https://journalcheckertool.org/faq/>
+- Journal Checker Tool. (2026a). What happens to "expired" Transformative
+  Agreements? *FAQ*.
+  <https://journalcheckertool.org/faq/#what-happens-to-expired-transformative-agreements>
+- Journal Checker Tool. (2026b). What is the Journal Checker Tool for? *FAQ*.
+  <https://journalcheckertool.org/faq/#what-is-the-journal-checker-tool-for>
