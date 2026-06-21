@@ -4,6 +4,7 @@ dev/
 /_site/
 /.quarto/
 /site_libs/
+/*.rmarkdown
 /*.html
 
 # Generated per-institution pages (recreated by scripts/gen_pages.R)
