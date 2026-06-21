@@ -6,8 +6,7 @@ This site presents [Journal Checker Tool](https://journalcheckertool.org/) (JCT)
 data for the [TU9](https://www.tu9.de/) universities. The link between an
 agreement, its participating institutions, and the journals it covers comes
 from a voluntary, partly manual process, not an authoritative feed from
-publishers. This page explains how that data is assembled and how this
-site matches it.
+publishers.
 
 ## How the data is assembled
 
