@@ -35,12 +35,14 @@ institution lists (Kiley 2023).
 
 An agreement is listed for a university when one of the university's ROR
 identifiers appears among the agreement's participating institutions. A
-university is represented by its own ROR ids, including its library where the
-library has a separate ROR — for example Dresden also counts agreements held by
-the [SLUB](https://ror.org/03wf51b65) and Hannover those held by the
-[TIB](https://ror.org/04aj4c181). University clinics are not counted; in this
-data they only appear on agreements where the university itself is already
-listed, so they add no coverage.
+university is represented by its own ROR ids, including its library and
+university hospital where these have a separate ROR — for example Dresden also
+counts the [SLUB](https://ror.org/03wf51b65) and the
+[University Hospital Carl Gustav Carus](https://ror.org/04za5zm41), and Hannover
+the [TIB](https://ror.org/04aj4c181). In the current data a university hospital
+is only ever listed on agreements its university already holds, so it adds no
+coverage of its own; its ROR is recorded in the `members_ror` column to show
+which agreements name the hospital.
 
 ## What the dates and identifiers mean
 

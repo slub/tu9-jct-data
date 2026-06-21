@@ -76,16 +76,18 @@ An agreement is listed for a university when one of that university's
 [ROR](https://ror.org/) identifiers appears among the agreement's
 participating institutions. A university is represented by its own ROR ids.
 
-An institution can have more than one ROR — most notably when its library is a
-standalone organisation with its own ROR. Two TU9 libraries are like this and
-are counted under their university:
+An institution can have more than one ROR — most notably when its library or
+university hospital is a standalone organisation with its own ROR. These are
+counted under their university:
 
-- Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65)
+- Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65) + [University Hospital Carl Gustav Carus](https://ror.org/04za5zm41)
 - Leibniz Universität Hannover + [TIB](https://ror.org/04aj4c181)
+- Technical University of Munich + [TUM Klinikum](https://ror.org/04jc43x05)
+- RWTH Aachen University + [Universitätsklinikum Aachen](https://ror.org/02gm5zw39)
 
-University clinics are not counted: in this data they only appear
-on agreements where the university itself is already a participant, so they add
-no coverage.
+In the current data the university hospitals are only ever listed on agreements
+their university already holds, so they add no coverage of their own; they are
+included so the `members_ror` column records which agreements name the hospital.
 
 To extend coverage, add the extra ROR identifier as a new row in
 [`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug` as the

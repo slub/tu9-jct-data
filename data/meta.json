@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20",
+  "updated": "2026-06-21",
   "source": "Journal Checker Tool - Transformative Agreements Public Data (CC0)",
   "n_agreements": 37,
   "n_journals": 12874,
@@ -14,7 +14,7 @@
     {
       "name": "Technical University of Munich",
       "slug": "tu-munich",
-      "ror_id": "02kkvpp62",
+      "ror_id": "02kkvpp62;04jc43x05",
       "n_agreements": 20,
       "n_journals": 12264
     },
@@ -35,7 +35,7 @@
     {
       "name": "Technische Universität Dresden",
       "slug": "tu-dresden",
-      "ror_id": "042aqky30;03wf51b65",
+      "ror_id": "042aqky30;03wf51b65;04za5zm41",
       "n_agreements": 21,
       "n_journals": 12116
     },
@@ -56,7 +56,7 @@
     {
       "name": "RWTH Aachen University",
       "slug": "rwth-aachen",
-      "ror_id": "04xfq0f34",
+      "ror_id": "04xfq0f34;02gm5zw39",
       "n_agreements": 16,
       "n_journals": 11099
     },
