@@ -142,6 +142,16 @@ Rscript scripts/gen_pages.R    # build per-institution pages
 quarto render                  # build the website into _site/
 ```
 
+While editing pages, `scripts/render.sh` rebuilds only the pages you name
+(`scripts/render.sh background.qmd`), or — with no arguments — the `.qmd` files
+you've changed, instead of re-rendering the whole site. For a live-reloading
+preview, use `quarto preview <page.qmd>`.
+
+This matters because a full `quarto render` is slow: about 9 minutes, most of it
+the large `journals` page (~1 minute on its own). A single prose page renders in
+a few seconds and a page with a data table (e.g. `index`) in well under ten, so
+prefer per-page rendering during development (timings as of June 2026).
+
 ## First-time setup (maintainers)
 
 The website is deployed straight from the workflow. In the repository settings
