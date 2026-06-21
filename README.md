@@ -5,7 +5,7 @@ Weekly snapshot of [Journal Checker Tool](https://journalcheckertool.org/transfo
 the alliance of nine German universities of technology. Agreement names, publishers
 and consortia are enriched from the
 [ESAC registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
-Published as CC0 CSV files and a website.
+Published as CSV files and a website.
 
 📊 **Website:** https://slub.github.io/tu9-jct-data/  
 📁 **Data:** the [`data/`](data/) directory
