@@ -20,7 +20,7 @@ site matches it.
    and agreements are registered at the consortium level rather than per member.
 3. The JCT data team crawls ESAC regularly, then contacts each consortium for
    the covered titles and the institutions with access. This list is curated by
-   hand, not scraped (Hope 2020).
+   hand, not scraped.
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    with an [API](https://journalcheckertool.org/apidocs).
@@ -30,32 +30,18 @@ site matches it.
 A single agreement can give different institutions access to different title
 sets. The JCT records this in its own per-agreement sheets. There is no fixed
 one-to-one relationship between an agreement and its journal or institution
-lists (Kiley 2023).
+lists.
 
 ## How this site matches agreements
 
 An agreement is listed for a university when one of the university's ROR
 identifiers appears among the agreement's participating institutions. A
-university is represented by its own ROR ids, including those of its library and
-university hospital where these hold a separate ROR. In the current data a
-hospital only ever appears on agreements its university already holds; it adds no
-coverage of its own, and its ROR is recorded in the `members_ror` column to flag
-which agreements name the library or hospital.
+university is represented by the ROR ids listed for its `slug` in
+`data-raw/orgs.csv`, including libraries and university hospitals where these
+hold separate RORs. The `members_ror` column records which of those ROR ids were
+matched for each agreement.
 
-## Caveats
-
-Only agreements reviewed and confirmed
-[Plan S–compliant](https://www.coalition-s.org/faq-theme/compliance/)
-appear in the public index. An expired agreement is dropped about three
-months after it ends (JCT 2026). Coverage depends on consortia choosing
-to register and to respond to the JCT's requests.
-
-Independent checks find this kind of JCT-based matching accurate but
-incomplete — high precision, lower recall (de Jonge et al. 2025); a related
-analysis was likewise built to underestimate rather than overestimate the open
-access it counts (Jahn 2025).
-
-## References
+## Sources
 
 - Hope, H. (2020). Enabling accurate results within the Journal Checker Tool.
   *sOApbox, official blog of cOAlition S*, 18 November 2020.
@@ -64,13 +50,3 @@ access it counts (Jahn 2025).
   for Transformative Agreements. *sOApbox, official blog of cOAlition S*,
   22 September 2023.
   <https://www.coalition-s.org/blog/introducing-new-search-features-in-the-journal-checker-tool-for-transformative-agreements/>
-- de Jonge, H., Kramer, B., & Sondervan, J. (2025). Tracking transformative
-  agreements through open metadata: Method and validation using Dutch Research
-  Council NWO funded papers. *Quantitative Science Studies*, 6, 1215–1227.
-  <https://doi.org/10.1162/qss.a.24>
-- Jahn, N. (2025). How open are hybrid journals included in transformative
-  agreements? *Quantitative Science Studies*, 6, 242–262.
-  <https://doi.org/10.1162/qss_a_00348>
-- Journal Checker Tool. (2026). What happens to "expired" Transformative
-  Agreements? *FAQ*.
-  <https://journalcheckertool.org/faq/#what-happens-to-expired-transformative-agreements>
