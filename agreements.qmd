@@ -10,7 +10,7 @@ agreements <- read_data("agreements.csv")
 Every transformative agreement in which at least one TU9 university takes
 part. One row per agreement and relationship (sub-package); the `TU9 members`
 column shows which institutions participate. In total, **`r nrow(agreements)`**
-transformative agreements are listed.
+agreement records are listed.
 
 Download this data as CSV: [`agreements.csv`](https://github.com/slub/tu9-jct-data/blob/main/data/agreements.csv).
 

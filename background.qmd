@@ -2,11 +2,11 @@
 title: "Background"
 ---
 
-This site is a thin layer over data curated by the
-[Journal Checker Tool](https://journalcheckertool.org/) (JCT). The link between an
-agreement, the institutions taking part, and the journals it covers is the
-product of a voluntary, partly manual process — not an authoritative feed from
-publishers — so it helps to know how that data is assembled.
+This site presents [Journal Checker Tool](https://journalcheckertool.org/) (JCT)
+data for the TU9 universities. The link between an agreement, its participating
+institutions, and the journals it covers comes from a voluntary, partly manual
+process, not an authoritative feed from publishers. This page explains how that
+data is assembled and how this site matches it.
 
 ## How the data is assembled
 
@@ -17,54 +17,43 @@ publishers — so it helps to know how that data is assembled.
    Sharing the terms is
    [voluntary](https://esac-initiative.org/about/transformative-agreements/share/),
    and agreements are registered at the consortium level rather than per member.
-3. The JCT data team crawls ESAC regularly, then contacts the consortium directly
-   to obtain the covered titles and the institutions that have access — this list
-   is curated by hand, not scraped (Hope 2020).
+3. The JCT data team crawls ESAC regularly, then contacts each consortium for
+   the covered titles and the institutions with access. This list is curated by
+   hand, not scraped (Hope 2020).
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
-   and an [API](https://journalcheckertool.org/apidocs).
+   with an [API](https://journalcheckertool.org/apidocs).
 5. This site consumes that data and matches agreements to TU9 universities by
-   ROR identifier.
+   [ROR](https://ror.org/) identifier.
 
-A single agreement can give different institutions access to different sets of
-titles, which the JCT records in its own per-agreement sheets; there is
-no fixed one-to-one relationship between an agreement and its journal and
-institution lists (Kiley 2023).
+A single agreement can give different institutions access to different title
+sets. The JCT records this in its own per-agreement sheets. There is no fixed
+one-to-one relationship between an agreement and its journal or institution
+lists (Kiley 2023).
 
 ## How this site matches agreements
 
 An agreement is listed for a university when one of the university's ROR
 identifiers appears among the agreement's participating institutions. A
-university is represented by its own ROR ids, including its library and
-university hospital where these have a separate ROR — for example Dresden also
-counts the [SLUB](https://ror.org/03wf51b65) and the
-[University Hospital Carl Gustav Carus](https://ror.org/04za5zm41), and Hannover
-the [TIB](https://ror.org/04aj4c181). In the current data a university hospital
-is only ever listed on agreements its university already holds, so it adds no
-coverage of its own; its ROR is recorded in the `members_ror` column to show
-which agreements name the hospital.
-
-## What the dates and identifiers mean
-
-Curation happens in periodic review cycles, not as a live feed, so the dates are
-**observational**: the JCT records when it first and last observed a journal or
-institution to be part of an agreement, not when it actually joined or left.
-Journals are identified by print and online ISSN, institutions by
-[ROR](https://ror.org/) where available.
+university is represented by its own ROR ids. This includes its library and
+university hospital where these hold a separate ROR.
+In the current data a university hospital is
+only ever listed on agreements its university already holds. It adds no coverage
+of its own; its ROR is recorded in the `members_ror` column to show which
+agreements name the library and/or hospital.
 
 ## Caveats
 
-The figures here are a conservative lower bound: independent checks of this kind
-of JCT-based matching find it accurate but incomplete — high precision, lower
-recall (de Jonge et al. 2025); a related JCT-based analysis was likewise designed
-to underestimate rather than overestimate the open access it counts (Jahn 2025).
-Only agreements that have been fully reviewed and confirmed Plan S–compliant
-(JCT 2026b) appear in the public index, an expired agreement is dropped about
-three months after it ends (JCT 2026a), and coverage depends on consortia
-choosing to register and to respond to the JCT's requests — so this is a
-curated snapshot, not a complete or historical record.
-The agreements also cover open access only for articles where the TU9 author is
-the corresponding author (the `ca_only` field in the agreements CSV).
+Only agreements reviewed and confirmed Plan S–compliant (JCT 2026b) appear in the
+public index. An expired agreement is dropped about three months after it ends
+(JCT 2026a). Coverage depends on consortia choosing to register and to respond to
+the JCT's requests. This is a curated snapshot, not a complete or historical
+record.
+
+Independent checks of this kind of JCT-based matching find it accurate
+but incomplete — high precision, lower recall (de Jonge et al. 2025). A related
+JCT-based analysis was likewise designed to underestimate rather than
+overestimate the open access it counts (Jahn 2025).
 
 ## References
 

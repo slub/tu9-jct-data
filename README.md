@@ -1,8 +1,8 @@
 # TU9 Transformative Agreements
 
 Regularly updated metadata about transformative agreements for the
-[TU9](https://www.tu9.de/) universities — the alliance of nine leading German
-institutes of technology.
+[TU9](https://www.tu9.de/) universities — the alliance of nine German
+universities of technology.
 
 The data is fetched from the
 [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
@@ -30,7 +30,8 @@ publisher, consortium, dates) used to enrich the agreements.
 
 The pipeline inputs live in `data-raw/`:
 [`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR identifiers) and
-[`urls.csv`](data-raw/urls.csv) (each library's open-access funding page).
+[`urls.csv`](data-raw/urls.csv) (each institution's open-access agreements and
+funding page).
 
 ### Columns
 
@@ -64,40 +65,30 @@ The pipeline inputs live in `data-raw/`:
 | Column | Meaning |
 | --- | --- |
 | `id` | ESAC ID (joins to `esac_id` above) |
-| `name` | Agreement name / labeling |
+| `name` | Agreement name |
 | `publisher` | Publisher |
 | `consortium` | Negotiating consortium or institution |
 | `start_date` | Agreement start date |
 | `end_date` | Agreement end date (per the ESAC registry) |
 
-## How an institution is matched
+## Matching and coverage
 
 An agreement is listed for a university when one of that university's
-[ROR](https://ror.org/) identifiers appears among the agreement's
-participating institutions. A university is represented by its own ROR ids.
-
-An institution can have more than one ROR — most notably when its library or
-university hospital is a standalone organisation with its own ROR. These are
-counted under their university:
-
-- Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65) + [University Hospital Carl Gustav Carus](https://ror.org/04za5zm41)
-- Leibniz Universität Hannover + [TIB](https://ror.org/04aj4c181)
-- Technical University of Munich + [TUM Klinikum](https://ror.org/04jc43x05)
-- RWTH Aachen University + [Universitätsklinikum Aachen](https://ror.org/02gm5zw39)
-
-In the current data the university hospitals are only ever listed on agreements
-their university already holds, so they add no coverage of their own; they are
-included so the `members_ror` column records which agreements name the hospital.
+[ROR](https://ror.org/) identifiers appears among the agreement's participating
+institutions. A university is represented by its own ROR ids, including its
+library and university hospital where these hold a separate ROR. See the site's
+[Background](https://slub.github.io/tu9-jct-data/background.html) page for the
+full method.
 
 To extend coverage, add the extra ROR identifier as a new row in
 [`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug` as the
 institution it belongs to; the first row for a slug provides the display name.
 No code changes are needed.
 
-When adding a brand-new institution (a new `slug`), also add a matching row
-to [`data-raw/urls.csv`](data-raw/urls.csv) (`slug,url`) pointing to the
-institution's own page on open-access agreements and funding support. A slug
-without a row simply renders without that link.
+When adding a brand-new institution (a new `slug`), also add a matching row to
+[`data-raw/urls.csv`](data-raw/urls.csv) (`slug,url`) pointing to the
+institution's open-access agreements and funding page. A slug without a row
+renders without that link.
 
 ## How it works
 
@@ -108,18 +99,17 @@ data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ─�
 
 1. `scripts/fetch.R` reads the JCT index, downloads each agreement, keeps those
    with a TU9 participant, and writes all CSV views plus `data/meta.json`.
-2. A guard rail aborts the run without overwriting if the number of
-   agreements drops by more than 20 % compared to the committed data (protects
-   against a bad fetch). Re-run from the Actions tab with *force* to override.
-3. `scripts/esac.R` enriches those agreements with name, publisher and
-   consortium from the ESAC TA Registry, writing `data/esac.csv`. It is best
-   effort: the registry is a snapshot behind a rotating share link, so any
-   download error is non-fatal — the last-good `data/esac.csv` is kept and the
-   refresh continues. Bump the URL in `scripts/esac.R` when ESAC publishes a new
-   registry.
+2. A guard rail aborts the run without overwriting if the agreement count drops
+   by more than 20 % versus the committed data, protecting against a bad fetch.
+   Re-run from the Actions tab with *force* to override.
+3. `scripts/esac.R` adds name, publisher and consortium from the ESAC TA
+   Registry, writing `data/esac.csv`. It is best effort. The registry is a
+   snapshot behind a rotating share link, so a download error is non-fatal: the
+   last-good `data/esac.csv` is kept and the refresh continues. Bump the URL in
+   `scripts/esac.R` when ESAC publishes a new registry.
 4. `scripts/gen_pages.R` creates one Quarto page per institution, linking each
-   to the institution's own page on open-access agreements and funding support
-   from [`data-raw/urls.csv`](data-raw/urls.csv) (matched by `slug`).
+   to the institution's open-access agreements and funding page from
+   [`data-raw/urls.csv`](data-raw/urls.csv) (matched by `slug`).
 5. The site is rendered and deployed to GitHub Pages.
 
 Two GitHub Actions workflows drive this:
@@ -148,10 +138,10 @@ While editing pages, `scripts/render.sh` rebuilds only the pages you name
 you've changed, instead of re-rendering the whole site. For a live-reloading
 preview, use `quarto preview <page.qmd>`.
 
-This matters because a full `quarto render` is slow: about 9 minutes, most of it
-the large `journals` page (~1 minute on its own). A single prose page renders in
-a few seconds and a page with a data table (e.g. `index`) in well under ten, so
-prefer per-page rendering during development (timings as of June 2026).
+A full `quarto render` is slow — about 9 minutes, most of it the large
+`journals` page (~1 minute on its own). A prose page renders in a few seconds, a
+page with a data table (e.g. `index`) in under ten. Prefer per-page rendering
+during development (timings as of June 2026).
 
 ## First-time setup (maintainers)
 
