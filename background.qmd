@@ -3,10 +3,11 @@ title: "Background"
 ---
 
 This site presents [Journal Checker Tool](https://journalcheckertool.org/) (JCT)
-data for the TU9 universities. The link between an agreement, its participating
-institutions, and the journals it covers comes from a voluntary, partly manual
-process, not an authoritative feed from publishers. This page explains how that
-data is assembled and how this site matches it.
+data for the [TU9](https://www.tu9.de/) universities. The link between an
+agreement, its participating institutions, and the journals it covers comes
+from a voluntary, partly manual process, not an authoritative feed from
+publishers. This page explains how that data is assembled and how this
+site matches it.
 
 ## How the data is assembled
 
@@ -35,25 +36,24 @@ lists (Kiley 2023).
 
 An agreement is listed for a university when one of the university's ROR
 identifiers appears among the agreement's participating institutions. A
-university is represented by its own ROR ids. This includes its library and
-university hospital where these hold a separate ROR.
-In the current data a university hospital is
-only ever listed on agreements its university already holds. It adds no coverage
-of its own; its ROR is recorded in the `members_ror` column to show which
-agreements name the library and/or hospital.
+university is represented by its own ROR ids, including those of its library and
+university hospital where these hold a separate ROR. In the current data a
+hospital only ever appears on agreements its university already holds; it adds no
+coverage of its own, and its ROR is recorded in the `members_ror` column to flag
+which agreements name the library or hospital.
 
 ## Caveats
 
-Only agreements reviewed and confirmed Plan S–compliant (JCT 2026b) appear in the
-public index. An expired agreement is dropped about three months after it ends
-(JCT 2026a). Coverage depends on consortia choosing to register and to respond to
-the JCT's requests. This is a curated snapshot, not a complete or historical
-record.
+Only agreements reviewed and confirmed
+[Plan S–compliant](https://www.coalition-s.org/faq-theme/compliance/)
+appear in the public index. An expired agreement is dropped about three
+months after it ends (JCT 2026). Coverage depends on consortia choosing
+to register and to respond to the JCT's requests.
 
-Independent checks of this kind of JCT-based matching find it accurate
-but incomplete — high precision, lower recall (de Jonge et al. 2025). A related
-JCT-based analysis was likewise designed to underestimate rather than
-overestimate the open access it counts (Jahn 2025).
+Independent checks find this kind of JCT-based matching accurate but
+incomplete — high precision, lower recall (de Jonge et al. 2025); a related
+analysis was likewise built to underestimate rather than overestimate the open
+access it counts (Jahn 2025).
 
 ## References
 
@@ -71,8 +71,6 @@ overestimate the open access it counts (Jahn 2025).
 - Jahn, N. (2025). How open are hybrid journals included in transformative
   agreements? *Quantitative Science Studies*, 6, 242–262.
   <https://doi.org/10.1162/qss_a_00348>
-- Journal Checker Tool. (2026a). What happens to "expired" Transformative
+- Journal Checker Tool. (2026). What happens to "expired" Transformative
   Agreements? *FAQ*.
   <https://journalcheckertool.org/faq/#what-happens-to-expired-transformative-agreements>
-- Journal Checker Tool. (2026b). What is the Journal Checker Tool for? *FAQ*.
-  <https://journalcheckertool.org/faq/#what-is-the-journal-checker-tool-for>

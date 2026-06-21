@@ -1,37 +1,30 @@
 # TU9 Transformative Agreements
 
-Regularly updated metadata about transformative agreements for the
-[TU9](https://www.tu9.de/) universities — the alliance of nine German
-universities of technology.
-
-The data is fetched from the
-[Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
-("Transformative Agreements Public Data"), refreshed automatically every week,
-and published both as plain CSV files and as a browsable website. Agreement
-names, publishers and consortia are enriched from the
-[ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
+Weekly snapshot of [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
+(JCT) transformative-agreement data for the [TU9](https://www.tu9.de/) universities,
+the alliance of nine German universities of technology. Agreement names, publishers
+and consortia are enriched from the
+[ESAC registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
+Published as CC0 CSV files and a website.
 
 📊 **Website:** https://slub.github.io/tu9-jct-data/  
-📁 **Data:** the [`data/`](data/) directory of this repository
+📁 **Data:** the [`data/`](data/) directory
 
 ## What you get
 
-Two views — agreements and the journals they cover — for all TU9 universities
-and per institution:
+Two views — agreements and the journals they cover — for all TU9 universities and
+per institution:
 
 | View | Files |
 | --- | --- |
 | **All agreements** with at least one TU9 participant | [`data/agreements.csv`](data/agreements.csv) |
 | **All journals** covered by those agreements | [`data/journals.csv`](data/journals.csv) |
-| **Per institution** — the same two views, one folder each | `data/<institution>/agreements.csv` and `journals.csv` |
+| **Per institution** — the same two views | `data/<institution>/agreements.csv` and `journals.csv` |
 
-Plus [`data/esac.csv`](data/esac.csv) — ESAC registry metadata (id, name,
-publisher, consortium, dates) used to enrich the agreements.
-
-The pipeline inputs live in `data-raw/`:
-[`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR identifiers) and
-[`urls.csv`](data-raw/urls.csv) (each institution's open-access agreements and
-funding page).
+Plus [`data/esac.csv`](data/esac.csv) — ESAC registry metadata (id, name, publisher,
+consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-raw/`:
+[`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR ids) and
+[`urls.csv`](data-raw/urls.csv) (each institution's open-access page).
 
 ### Columns
 
@@ -71,92 +64,50 @@ funding page).
 | `start_date` | Agreement start date |
 | `end_date` | Agreement end date (per the ESAC registry) |
 
-## Matching and coverage
+## Matching
 
 An agreement is listed for a university when one of that university's
-[ROR](https://ror.org/) identifiers appears among the agreement's participating
-institutions. A university is represented by its own ROR ids, including its
-library and university hospital where these hold a separate ROR. See the site's
-[Background](https://slub.github.io/tu9-jct-data/background.html) page for the
-full method.
+[ROR](https://ror.org/) ids appears among the agreement's participating institutions.
+The [Background](https://slub.github.io/tu9-jct-data/background.html) page documents
+the method in full.
 
-To extend coverage, add the extra ROR identifier as a new row in
-[`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug` as the
-institution it belongs to; the first row for a slug provides the display name.
-No code changes are needed.
-
-When adding a brand-new institution (a new `slug`), also add a matching row to
-[`data-raw/urls.csv`](data-raw/urls.csv) (`slug,url`) pointing to the
-institution's open-access agreements and funding page. A slug without a row
-renders without that link.
+To extend coverage, add the ROR id as a new row in
+[`data-raw/orgs.csv`](data-raw/orgs.csv) under the institution's `slug` (the first row
+for a slug sets its display name). For a brand-new institution, also add a `slug,url`
+row to [`data-raw/urls.csv`](data-raw/urls.csv). No code changes needed.
 
 ## How it works
 
 ```
-data-raw/orgs.csv   ──►  scripts/fetch.R  ──►  scripts/esac.R  ──►  data/*.csv  ──►  Quarto site ──► GitHub Pages
-   (TU9 ROR ids)          (weekly cron)        (ESAC enrichment)     (committed)      (per-institution pages)
+data-raw/orgs.csv ─► scripts/fetch.R ─► scripts/esac.R ─► data/*.csv ─► Quarto site ─► GitHub Pages
+  (TU9 ROR ids)       (weekly cron)      (ESAC enrich)     (committed)
 ```
 
-1. `scripts/fetch.R` reads the JCT index, downloads each agreement, keeps those
-   with a TU9 participant, and writes all CSV views plus `data/meta.json`.
-2. A guard rail aborts the run without overwriting if the agreement count drops
-   by more than 20 % versus the committed data, protecting against a bad fetch.
-   Re-run from the Actions tab with *force* to override.
-3. `scripts/esac.R` adds name, publisher and consortium from the ESAC TA
-   Registry, writing `data/esac.csv`. It is best effort. The registry is a
-   snapshot behind a rotating share link, so a download error is non-fatal: the
-   last-good `data/esac.csv` is kept and the refresh continues. Bump the URL in
-   `scripts/esac.R` when ESAC publishes a new registry.
-4. `scripts/gen_pages.R` creates one Quarto page per institution, linking each
-   to the institution's open-access agreements and funding page from
-   [`data-raw/urls.csv`](data-raw/urls.csv) (matched by `slug`).
-5. The site is rendered and deployed to GitHub Pages.
-
-Two GitHub Actions workflows drive this:
-
-- [`refresh.yml`](.github/workflows/refresh.yml) — the weekly cron: fetches
-  fresh data, commits it, then rebuilds and deploys the site.
-- [`pages.yml`](.github/workflows/pages.yml) — a lightweight rebuild that
-  re-renders and deploys the site from the data already in the repo, *without*
-  fetching. It runs automatically when site code is pushed to `main`, or on
-  demand from the Actions tab — handy after a layout or wording change.
+`fetch.R` keeps every JCT agreement with a TU9 participant and writes the CSV views,
+aborting if the count drops by more than 20 % versus the committed data. `esac.R` adds
+publisher metadata, best effort — a stale registry link is non-fatal. `gen_pages.R`
+builds the per-institution pages. The weekly
+[`refresh.yml`](.github/workflows/refresh.yml) workflow fetches, commits and deploys;
+[`pages.yml`](.github/workflows/pages.yml) rebuilds the site from committed data without
+fetching. Deployment is via GitHub Actions (set **Settings → Pages → Source** to GitHub
+Actions once).
 
 ## Running it yourself
 
-Requirements: R (≥ 4.2) and [Quarto](https://quarto.org/). Dependencies are
-pinned with [`renv`](https://rstudio.github.io/renv/).
+Requires R (≥ 4.2) and [Quarto](https://quarto.org/); R dependencies are pinned with
+[`renv`](https://rstudio.github.io/renv/).
 
 ```sh
 Rscript -e 'renv::restore()'   # install pinned R packages
 Rscript scripts/fetch.R        # refresh the data
 Rscript scripts/gen_pages.R    # build per-institution pages
-quarto render                  # build the website into _site/
+quarto render                  # build the site into _site/
 ```
 
-While editing pages, `scripts/render.sh` rebuilds only the pages you name
-(`scripts/render.sh background.qmd`), or — with no arguments — the `.qmd` files
-you've changed, instead of re-rendering the whole site. For a live-reloading
-preview, use `quarto preview <page.qmd>`.
-
-A full `quarto render` is slow — about 9 minutes, most of it the large
-`journals` page (~1 minute on its own). A prose page renders in a few seconds, a
-page with a data table (e.g. `index`) in under ten. Prefer per-page rendering
-during development (timings as of June 2026).
-
-## First-time setup (maintainers)
-
-The website is deployed straight from the workflow. In the repository settings
-under **Settings → Pages**, set the source to **GitHub Actions**. After that,
-every scheduled run rebuilds and republishes the site automatically.
+While editing, render a single page with `quarto preview <page.qmd>` or
+`scripts/render.sh <page.qmd>` instead of the full, slow site build.
 
 ## Licensing
 
 - **Code** (R scripts, Quarto config, workflows): [MIT](LICENSE)
-- **Data** (everything in [`data/`](data/)): [CC0 1.0](data/LICENSE), matching
-  the upstream Journal Checker Tool data.
-
-## Acknowledgements
-
-Data source: [Journal Checker Tool](https://journalcheckertool.org/) by cOAlition S.
-Inspired by [`njahn82/jct_data`](https://github.com/njahn82/jct_data) and the
-SLUB Dresden reporting workflows.
+- **Data** ([`data/`](data/)): [CC0 1.0](data/LICENSE), matching the upstream JCT data.

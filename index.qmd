@@ -8,21 +8,14 @@ source("scripts/site_helpers.R")
 meta <- read_meta()
 ```
 
-This site is a TU9 view of the
-[Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
-(JCT) index of
-[Plan S–compliant](https://www.coalition-s.org/faq-theme/compliance/)
-transformative agreements. It covers the
-[TU9](https://www.tu9.de/) universities — the alliance of nine German
-universities of technology. The data is released under
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/), refreshed weekly, and
-enriched with agreement names, publishers and consortia from the
-[ESAC registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
+This site is a TU9 view of the Journal Checker Tool (JCT) index of
+Plan S–compliant transformative agreements, covering the nine German
+universities of technology in the TU9 alliance. The data is released under
+CC0, refreshed weekly, and enriched with agreement names, publishers and
+consortia from the ESAC registry.
 
-An agreement is listed for a university when one of that university's
-[ROR](https://ror.org/) identifiers is among the agreement's participating
-institutions. See [Background](background.qmd) for how the JCT assembles the data
-and how matching works.
+See [Background](background.qmd) for how the JCT assembles this data and how
+agreements are matched to TU9 universities.
 
 ```{r}
 #| echo: false
