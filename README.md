@@ -72,10 +72,9 @@ The pipeline inputs live in `data-raw/`:
 
 ## How an institution is matched
 
-An agreement is listed for a university when any of that university's
+An agreement is listed for a university when one of that university's
 [ROR](https://ror.org/) identifiers appears among the agreement's
-participating institutions. Matching is deliberately strict — precision
-first: an institution is represented only by ROR ids it explicitly claims.
+participating institutions. A university is represented by its own ROR ids.
 
 An institution can have more than one ROR — most notably when its library is a
 standalone organisation with its own ROR. Two TU9 libraries are like this and
@@ -84,9 +83,9 @@ are counted under their university:
 - Technische Universität Dresden + [SLUB Dresden](https://ror.org/03wf51b65)
 - Leibniz Universität Hannover + [TIB](https://ror.org/04aj4c181)
 
-University clinics are intentionally left out: in this data they only appear
+University clinics are not counted: in this data they only appear
 on agreements where the university itself is already a participant, so they add
-no coverage (verified, not assumed).
+no coverage.
 
 To extend coverage, add the extra ROR identifier as a new row in
 [`data-raw/orgs.csv`](data-raw/orgs.csv) with the same `slug` as the
