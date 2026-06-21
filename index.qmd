@@ -10,27 +10,19 @@ meta <- read_meta()
 
 This site is a TU9 view of the
 [Journal Checker Tool](https://journalcheckertool.org/transformative-agreements/)
-(JCT) Plan S-compliant transformative-agreement index — one route to compliance,
-not a full compliance check (see [Background](background.qmd)). It covers the
+(JCT) index of
+[Plan S–compliant](https://www.coalition-s.org/faq-theme/compliance/)
+transformative agreements. It covers the
 [TU9](https://www.tu9.de/) universities — the alliance of leading German
-institutes of technology. The data ("Transformative Agreements Public Data",
-released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/)) is
-refreshed automatically every week. Agreement names, publishers and consortia are
-enriched from the [ESAC Transformative Agreement Registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
+institutes of technology. The data is released under
+[CC0](https://creativecommons.org/publicdomain/zero/1.0/), refreshed weekly, and
+enriched with agreement names, publishers and consortia from the
+[ESAC registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).
 
-An agreement is listed for a university when any of that university's
-[ROR](https://ror.org/) identifiers appears among the agreement's
-participating institutions. Matching is intentionally strict (precision
-first): a university is represented only by ROR ids it explicitly claims. This
-includes a university's own library where that library has its own ROR — for
-example Dresden also counts agreements held by the [SLUB](https://ror.org/03wf51b65)
-and Hannover those held by the [TIB](https://ror.org/04aj4c181). University
-clinics are deliberately not counted: in this data they only ever appear on
-agreements where the university itself is already listed, so they add no
-coverage.
-
-For how the JCT assembles these institution and journal lists — a voluntary,
-curated, partly manual process — see [Background](background.qmd).
+An agreement is listed for a university when one of that university's
+[ROR](https://ror.org/) identifiers is among the agreement's participating
+institutions. See [Background](background.qmd) for how the JCT assembles this
+data and how matching works.
 
 ```{r}
 #| echo: false
