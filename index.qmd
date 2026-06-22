@@ -50,7 +50,7 @@ reactable(
       htmltools::tags$a(href = sprintf("institutions/%s.html", df$slug[index]), value)
     }),
     Agreements = colDef(name = "Agreements"),
-    Journals   = colDef(name = "Journals", format = colFormat(separators = TRUE)),
+    Journals   = colDef(name = "Journals", format = colFormat(separators = TRUE, locales = "en-US")),
     slug = colDef(show = FALSE),
     ror  = colDef(name = "ROR ID", html = TRUE, cell = function(value) {
       ids <- strsplit(value, ";", fixed = TRUE)[[1]]

@@ -24,7 +24,7 @@ reactable(
     Institution = colDef(cell = function(value, index) {
       htmltools::tags$a(href = sprintf("%s.html", df$slug[index]), value)
     }),
-    Journals = colDef(format = colFormat(separators = TRUE)),
+    Journals = colDef(format = colFormat(separators = TRUE, locales = "en-US")),
     slug = colDef(show = FALSE)
   )
 )
