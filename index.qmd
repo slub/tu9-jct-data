@@ -52,7 +52,7 @@ reactable(
     Agreements = colDef(name = "Agreements"),
     Journals   = colDef(name = "Journals"),
     slug = colDef(show = FALSE),
-    ror  = colDef(name = "ROR", html = TRUE, cell = function(value) {
+    ror  = colDef(name = "ROR ID", html = TRUE, cell = function(value) {
       ids <- strsplit(value, ";", fixed = TRUE)[[1]]
       links <- vapply(ids, function(id) as.character(
         htmltools::tags$a(href = paste0("https://ror.org/", id),

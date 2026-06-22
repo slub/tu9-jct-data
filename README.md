@@ -23,7 +23,7 @@ per institution:
 
 Plus [`data/esac.csv`](data/esac.csv) — ESAC registry metadata (id, name, publisher,
 consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-raw/`:
-[`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR ids) and
+[`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR IDs) and
 [`urls.csv`](data-raw/urls.csv) (each institution's open-access page).
 
 ### Columns
@@ -39,7 +39,7 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 | `last_reviewed` | When the JCT entry was last reviewed |
 | `data_url` | Source CSV for this agreement sub-package |
 | `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
-| `members_ror` | Exact matched ROR ids for those TU9 participants |
+| `members_ror` | Exact matched ROR IDs for those TU9 participants |
 
 #### `journals.csv`
 
@@ -51,7 +51,7 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 | `esac_id` | Agreement the journal is covered by |
 | `data_url` | Source CSV for that agreement sub-package |
 | `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
-| `members_ror` | Exact matched ROR ids for those TU9 participants |
+| `members_ror` | Exact matched ROR IDs for those TU9 participants |
 
 #### `esac.csv`
 
@@ -67,11 +67,11 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 ## Matching
 
 An agreement is listed for a university when one of that university's
-[ROR](https://ror.org/) ids appears among the agreement's participating institutions.
+[ROR](https://ror.org/) IDs appears among the agreement's participating institutions.
 The [Background](https://slub.github.io/tu9-jct-data/background.html) page documents
 the method in full.
 
-To extend coverage, add the ROR id as a new row in
+To extend coverage, add the ROR ID as a new row in
 [`data-raw/orgs.csv`](data-raw/orgs.csv) under the institution's `slug` (the first row
 for a slug sets its display name). For a brand-new institution, also add a `slug,url`
 row to [`data-raw/urls.csv`](data-raw/urls.csv). No code changes needed.
@@ -80,7 +80,7 @@ row to [`data-raw/urls.csv`](data-raw/urls.csv). No code changes needed.
 
 ```
 data-raw/orgs.csv ─► scripts/fetch.R ─► scripts/esac.R ─► data/*.csv ─► Quarto site ─► GitHub Pages
-  (TU9 ROR ids)       (weekly cron)      (ESAC enrich)     (committed)
+  (TU9 ROR IDs)       (weekly cron)      (ESAC enrich)     (committed)
 ```
 
 `fetch.R` keeps every JCT agreement with a TU9 participant and writes the CSV views,

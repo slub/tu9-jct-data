@@ -68,7 +68,7 @@ jct_agreement_institutions <- function(df) {
   i[!is.na(i[[1]]), , drop = FALSE]
 }
 
-# Normalise a ROR identifier to its bare lowercase id, e.g.
+# Normalise a ROR ID to its bare lowercase form, e.g.
 # "https://ror.org/042AQKY30" -> "042aqky30".
 ror_bare <- function(x) {
   x <- tolower(trimws(x))

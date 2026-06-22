@@ -8,7 +8,7 @@
 #   data/<slug>/journals.csv     journals covered by one institution's agreements
 #   data/meta.json               summary counts + last-updated date (for the site)
 #
-# Matching is strict: an institution "participates" only if its exact ROR id
+# Matching is strict: an institution "participates" only if its exact ROR ID
 # (from data-raw/orgs.csv) appears in an agreement sub-package. Precision first.
 
 suppressPackageStartupMessages({
@@ -107,7 +107,7 @@ write_csv(journals,   "data/journals.csv",   na = "")
 
 n_unique_journals <- function(j) nrow(distinct(j, title, eissn, pissn))
 
-# One entry per institution. A slug may map to several ROR ids (e.g. a
+# One entry per institution. A slug may map to several ROR IDs (e.g. a
 # university plus its library); the first row for a slug supplies the name.
 institutions <- orgs[!duplicated(orgs$slug), c("name", "slug")]
 
