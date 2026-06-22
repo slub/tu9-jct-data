@@ -102,6 +102,7 @@ Requires R (≥ 4.2) and [Quarto](https://quarto.org/); R dependencies are pinne
 ```sh
 Rscript -e 'renv::restore()'   # install pinned R packages
 Rscript scripts/fetch.R        # refresh the data
+Rscript scripts/esac.R         # enrich with ESAC publisher metadata
 Rscript scripts/gen_pages.R    # build per-institution pages
 quarto render                  # build the site into _site/
 ```
