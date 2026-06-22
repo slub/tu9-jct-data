@@ -117,14 +117,6 @@ inline_p <- function(...) {
   tags$p(HTML(paste0(parts, collapse = "")))
 }
 
-# A short "Last updated" stamp sourced from data/meta.json, shown near the top of
-# each data-view page so a visitor landing directly on one can gauge data
-# freshness. Built as a glued inline paragraph (see inline_p) so it renders the
-# same from a Quarto chunk or inside inst_page(), matching the homepage wording.
-updated_stamp <- function() {
-  inline_p("<em>Last updated: <strong>", read_meta()$updated, "</strong>.</em>")
-}
-
 # A file name rendered as an inline `<code>` link. Passing tags$code() directly
 # as a child of tags$a() makes htmltools pretty-print the anchor across lines,
 # and the browser renders those newlines as spaces inside the link (e.g. the
@@ -157,7 +149,6 @@ inst_page <- function(slug, url = NULL) {
       " transformative ", tags$a(href = "#agreements", "agreements"),
       " covering ", tags$strong(n_journals),
       " unique ", tags$a(href = "#journals", "journals"), "."),
-    updated_stamp(),
     inline_p(
       "Download this institution's data as CSV: ",
       code_link(paste0(data_dir, "/agreements.csv"), "agreements.csv"),

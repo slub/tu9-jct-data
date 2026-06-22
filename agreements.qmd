@@ -12,10 +12,6 @@ part. One row per agreement and relationship (sub-package); the `TU9 members`
 column shows which institutions participate. In total, **`r nrow(agreements)`**
 agreement records are listed.
 
-```{r}
-updated_stamp()
-```
-
 Download this data as CSV: [`agreements.csv`](agreements.csv).
 
 ```{r}

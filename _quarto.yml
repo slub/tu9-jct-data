@@ -2,6 +2,10 @@ project:
   type: website
   output-dir: _site
   execute-dir: project
+  # Expose data/meta.json's last-updated date as {{< var updated >}} for the
+  # footer, before any page renders. See scripts/gen_variables.R.
+  pre-render:
+    - scripts/gen_variables.R
   # Publish the data files into the site at clean, prefix-free URLs (no /data/
   # or /data-raw/). See scripts/publish_data.R for the source -> URL mapping.
   post-render:
@@ -39,6 +43,7 @@ website:
         aria-label: GitHub repository
   page-footer:
     left: "Data: Journal Checker Tool (CC0) · Code: MIT"
+    center: "Last updated {{< var updated >}}"
     right: "Built with Quarto"
 
 format:
