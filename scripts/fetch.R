@@ -67,6 +67,8 @@ for (k in seq_along(urls)) {
       title   = jr$`Journal Name`,
       eissn   = jr$`ISSN (Online)`,
       pissn   = jr$`ISSN (Print)`,
+      first_seen = jr$`Journal First Seen`,
+      last_seen  = jr$`Journal Last Seen`,
       esac_id  = meta$`ESAC ID`,
       data_url = data_url,
       members_slug = members_slug_str,

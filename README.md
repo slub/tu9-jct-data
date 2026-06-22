@@ -48,6 +48,8 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 | `title` | Journal name |
 | `eissn` | ISSN (online) |
 | `pissn` | ISSN (print) |
+| `first_seen` | When JCT first listed this journal in the agreement |
+| `last_seen` | When JCT last listed it in the agreement (blank while still current) |
 | `esac_id` | Agreement the journal is covered by |
 | `data_url` | Source CSV for that agreement sub-package |
 | `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
