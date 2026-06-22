@@ -2,11 +2,9 @@
 title: "Background"
 ---
 
-This site presents [Journal Checker Tool](https://journalcheckertool.org/) (JCT)
-data for the [TU9](https://www.tu9.de/) universities. The link between an
-agreement, its participating institutions, and the journals it covers comes
-from a voluntary, partly manual process, not an authoritative feed from
-publishers.
+The link between an agreement, its participating institutions, and the
+journals it covers comes from a voluntary, partly manual process, not an
+authoritative feed from publishers.
 
 ## How the data is assembled
 
@@ -17,14 +15,14 @@ publishers.
    Sharing the terms is
    [voluntary](https://esac-initiative.org/about/transformative-agreements/share/),
    and agreements are registered at the consortium level rather than per member.
-3. The JCT data team crawls ESAC regularly, then contacts each consortium for
-   the covered titles and the institutions with access. This list is curated by
-   hand, not scraped.
+3. The [Journal Checker Tool](https://journalcheckertool.org/) (JCT) data team
+   crawls ESAC regularly, then contacts each consortium for the covered titles
+   and the institutions with access. This list is curated by hand, not scraped.
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    with an [API](https://journalcheckertool.org/apidocs).
-5. This site consumes that data and matches agreements to TU9 universities by
-   [ROR](https://ror.org/) identifier.
+5. This site consumes that data and matches agreements to
+   [TU9](https://www.tu9.de/) universities by [ROR](https://ror.org/) ID.
 
 A single agreement can give different institutions access to different title
 sets. The JCT records this in its own per-agreement sheets. There is no fixed
@@ -33,12 +31,12 @@ lists.
 
 ## How this site matches agreements
 
-An agreement is listed for a university when one of the university's ROR
-identifiers appears among the agreement's participating institutions. A
-university is represented by the ROR ids listed for its `slug` in
-`data-raw/orgs.csv`, including libraries and university hospitals where these
-hold separate RORs. The `members_ror` column records which of those ROR ids were
-matched for each agreement.
+An agreement is listed for a university when one of the university's ROR IDs
+appears among the agreement's participating institutions. A university is
+represented by the ROR IDs listed for its `slug` in `data-raw/orgs.csv`,
+including libraries and university hospitals where these hold separate
+ROR IDs. The `members_ror` column records which of those ROR IDs were matched
+for each agreement.
 
 ## Sources
 
