@@ -16,8 +16,8 @@ an authoritative feed from publishers.
    [voluntary](https://esac-initiative.org/about/transformative-agreements/share/),
    and agreements are registered at the consortium level rather than per member.
 3. The [Journal Checker Tool](https://journalcheckertool.org/) (JCT) data team
-   crawls ESAC regularly, then contacts each consortium for the covered titles
-   and the institutions with access. Those title lists are compiled by hand, not scraped.
+   monitors ESAC regularly for new agreements, then contacts each consortium
+   for the covered titles and the institutions with access.
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    with an [API](https://journalcheckertool.org/apidocs).
