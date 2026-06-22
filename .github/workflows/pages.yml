@@ -14,8 +14,11 @@ on:
     paths:
       - "**/*.qmd"
       - "_quarto.yml"
-      - "scripts/site_helpers.R"
       - "scripts/gen_pages.R"
+      - "scripts/site_helpers.R"
+      - "scripts/jct.R"
+      - "scripts/gen_variables.R"
+      - "scripts/publish_data.R"
       - ".github/workflows/pages.yml"
 
 permissions:
