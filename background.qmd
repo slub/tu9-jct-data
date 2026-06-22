@@ -17,7 +17,7 @@ authoritative feed from publishers.
    and agreements are registered at the consortium level rather than per member.
 3. The [Journal Checker Tool](https://journalcheckertool.org/) (JCT) data team
    crawls ESAC regularly, then contacts each consortium for the covered titles
-   and the institutions with access. This list is curated by hand, not scraped.
+   and the institutions with access. Those title lists are compiled by hand, not scraped.
 4. The JCT publishes the result as CC0
    ["Transformative Agreements Public Data"](https://journalcheckertool.org/transformative-agreements/)
    with an [API](https://journalcheckertool.org/apidocs).
@@ -25,7 +25,7 @@ authoritative feed from publishers.
    [TU9](https://www.tu9.de/) universities by [ROR](https://ror.org/) ID.
 
 A single agreement can give different institutions access to different title
-sets. The JCT records this in its own per-agreement sheets. There is no fixed
+sets. The JCT records this in its per-agreement sheets. There is no fixed
 one-to-one relationship between an agreement and its journal or institution
 lists.
 

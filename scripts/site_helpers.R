@@ -15,6 +15,11 @@ read_meta <- function() {
   jsonlite::read_json("data/meta.json", simplifyVector = FALSE)
 }
 
+# Format an integer count for display, with a thousands separator (e.g. 12874 ->
+# "12,874"). Used wherever a large count is shown in prose so they read
+# consistently across the site.
+fmt_int <- function(x) formatC(as.integer(x), format = "d", big.mark = ",")
+
 # ESAC registry enrichment (id -> name, publisher, ...), built by scripts/esac.R.
 # Read once and left-joined onto any data frame that carries an `esac_id` column.
 esac_lookup <- local({
@@ -145,9 +150,9 @@ inst_page <- function(slug, url = NULL) {
   n_journals <- nrow(unique(j[c("title", "eissn", "pissn")]))
   tagList(
     inline_p(
-      "This institution takes part in ", tags$strong(nrow(a)),
+      "This institution takes part in ", tags$strong(fmt_int(nrow(a))),
       " transformative ", tags$a(href = "#agreements", "agreements"),
-      " covering ", tags$strong(n_journals),
+      " covering ", tags$strong(fmt_int(n_journals)),
       " unique ", tags$a(href = "#journals", "journals"), "."),
     inline_p(
       "Download this institution's data as CSV: ",

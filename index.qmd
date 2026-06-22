@@ -11,12 +11,12 @@ meta <- read_meta()
 Researchers at the TU9 universities can publish open access in many journals
 through transformative agreements their institutions have negotiated with
 publishers. This site lists those [agreements](agreements.qmd) and the
-[journals](journals.qmd) each one covers — across all universities of
-technology in the TU9 alliance, and per institution.
+[journals](journals.qmd) each one covers, both alliance-wide and per
+institution.
 
-The data comes from the Journal Checker Tool (JCT) — refreshed weekly, released
-under CC0, and enriched with agreement names, publishers and consortia from the
-ESAC registry.
+The data comes from the Journal Checker Tool (JCT), enriched with agreement
+names, publishers and consortia from the ESAC registry. It's refreshed weekly
+and released under CC0.
 
 See [Background](background.qmd) for how the JCT assembles this data and how
 agreements are matched to TU9 universities.
@@ -25,8 +25,8 @@ agreements are matched to TU9 universities.
 #| echo: false
 #| output: asis
 cat(sprintf(
-  "*Last updated: **%s**. Covering **%d** agreement records and **%d** unique journals.*\n",
-  meta$updated, meta$n_agreements, meta$n_journals))
+  "*Last updated: **%s**. Covers **%s** agreement records and **%s** unique journals.*\n",
+  meta$updated, fmt_int(meta$n_agreements), fmt_int(meta$n_journals)))
 ```
 
 ## Coverage by institution
@@ -50,7 +50,7 @@ reactable(
       htmltools::tags$a(href = sprintf("institutions/%s.html", df$slug[index]), value)
     }),
     Agreements = colDef(name = "Agreements"),
-    Journals   = colDef(name = "Journals"),
+    Journals   = colDef(name = "Journals", format = colFormat(separators = TRUE)),
     slug = colDef(show = FALSE),
     ror  = colDef(name = "ROR ID", html = TRUE, cell = function(value) {
       ids <- strsplit(value, ";", fixed = TRUE)[[1]]

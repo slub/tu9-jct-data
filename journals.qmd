@@ -10,7 +10,7 @@ n_unique <- nrow(unique(journals[c("title", "eissn", "pissn")]))
 
 Every journal covered by an agreement in which at least one TU9 university takes
 part. A journal can appear under more than one agreement. In total, these
-agreements cover **`r n_unique`** unique journals.
+agreements cover **`r fmt_int(n_unique)`** unique journals.
 
 Download this data as CSV: [`journals.csv`](journals.csv).
 
