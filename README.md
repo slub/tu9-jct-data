@@ -24,7 +24,7 @@ per institution:
 Plus [`data/esac.csv`](data/esac.csv) — ESAC registry metadata (id, name, publisher,
 consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-raw/`:
 [`orgs.csv`](data-raw/orgs.csv) (TU9 institutions and their ROR IDs) and
-[`urls.csv`](data-raw/urls.csv) (each institution's open-access page).
+[`urls.csv`](data-raw/urls.csv) (each institution's open-access agreements page).
 
 ### Columns
 
@@ -39,7 +39,7 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 | `last_reviewed` | When the JCT entry was last reviewed |
 | `data_url` | Source CSV for this agreement sub-package |
 | `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
-| `members_ror` | Exact matched ROR IDs for those TU9 participants |
+| `members_ror` | The ROR IDs matched for those TU9 participants |
 
 #### `journals.csv`
 
@@ -51,7 +51,7 @@ consortium, dates) used to enrich the agreements. Pipeline inputs live in `data-
 | `esac_id` | Agreement the journal is covered by |
 | `data_url` | Source CSV for that agreement sub-package |
 | `members_slug` | TU9 institutions participating (semicolon-separated slugs) |
-| `members_ror` | Exact matched ROR IDs for those TU9 participants |
+| `members_ror` | The ROR IDs matched for those TU9 participants |
 
 #### `esac.csv`
 
@@ -84,7 +84,7 @@ data-raw/orgs.csv ─► scripts/fetch.R ─► scripts/esac.R ─► data/*.csv
 ```
 
 `fetch.R` keeps every JCT agreement with a TU9 participant and writes the CSV views,
-aborting if the count drops by more than 20 % versus the committed data. `esac.R` adds
+aborting if the count drops by more than 20% versus the committed data. `esac.R` adds
 publisher metadata, best effort — a stale registry link is non-fatal. `gen_pages.R`
 builds the per-institution pages. The weekly
 [`refresh.yml`](.github/workflows/refresh.yml) workflow fetches, commits and deploys;

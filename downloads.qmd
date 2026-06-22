@@ -39,7 +39,7 @@ ESAC enrichment:
 Pipeline inputs:
 
 - [`orgs.csv`](orgs.csv) — TU9 institutions and their ROR IDs
-- [`urls.csv`](urls.csv) — each institution's open-access agreements and funding page
+- [`urls.csv`](urls.csv) — each institution's open-access agreements page
 
 Other:
 
