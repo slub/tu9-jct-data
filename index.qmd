@@ -10,8 +10,9 @@ meta <- read_meta()
 
 Researchers at the TU9 universities can publish open access in many journals
 through transformative agreements their institutions have negotiated with
-publishers. This site lists those agreements and the journals each one covers —
-across all universities of technology in the TU9 alliance, and per institution.
+publishers. This site lists those [agreements](agreements.qmd) and the
+[journals](journals.qmd) each one covers — across all universities of
+technology in the TU9 alliance, and per institution.
 
 The data comes from the Journal Checker Tool (JCT) — refreshed weekly, released
 under CC0, and enriched with agreement names, publishers and consortia from the

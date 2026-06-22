@@ -12,7 +12,11 @@ Every journal covered by an agreement in which at least one TU9 university takes
 part. A journal can appear under more than one agreement. In total, these
 agreements cover **`r n_unique`** unique journals.
 
-Download this data as CSV: [`journals.csv`](https://github.com/slub/tu9-jct-data/blob/main/data/journals.csv).
+```{r}
+updated_stamp()
+```
+
+Download this data as CSV: [`journals.csv`](journals.csv).
 
 ```{r}
 journals_table(journals)

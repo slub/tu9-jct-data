@@ -12,7 +12,11 @@ part. One row per agreement and relationship (sub-package); the `TU9 members`
 column shows which institutions participate. In total, **`r nrow(agreements)`**
 agreement records are listed.
 
-Download this data as CSV: [`agreements.csv`](https://github.com/slub/tu9-jct-data/blob/main/data/agreements.csv).
+```{r}
+updated_stamp()
+```
+
+Download this data as CSV: [`agreements.csv`](agreements.csv).
 
 ```{r}
 agreements_table(agreements)
