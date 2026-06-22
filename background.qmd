@@ -3,8 +3,8 @@ title: "Background"
 ---
 
 The link between an agreement, its participating institutions, and the
-journals it covers comes from a voluntary, partly manual process, not an
-authoritative feed from publishers.
+journals it covers comes from a voluntary, partly manual process, rather than
+an authoritative feed from publishers.
 
 ## How the data is assembled
 
@@ -24,8 +24,8 @@ authoritative feed from publishers.
 5. This site consumes that data and matches agreements to
    [TU9](https://www.tu9.de/) universities by [ROR](https://ror.org/) ID.
 
-A single agreement can give different institutions access to different title
-sets. The JCT records this in its per-agreement sheets. There is no fixed
+A single agreement can provide different institutions with access to different
+title sets. The JCT records this in its per-agreement sheets. There is no fixed
 one-to-one relationship between an agreement and its journal or institution
 lists.
 
@@ -34,7 +34,7 @@ lists.
 An agreement is listed for a university when one of the university's ROR IDs
 appears among the agreement's participating institutions. A university is
 represented by the ROR IDs listed for its `slug` in `data-raw/orgs.csv`,
-including libraries and university hospitals where these hold separate
+including libraries and university hospitals when those units have separate
 ROR IDs. The `members_ror` column records which of those ROR IDs were matched
 for each agreement.
 

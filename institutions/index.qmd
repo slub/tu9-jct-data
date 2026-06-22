@@ -8,7 +8,7 @@ meta <- read_meta()
 inst <- meta$institutions
 ```
 
-Select an institution to see its agreements and the journals they cover.
+Select an institution to see its agreements and covered journals.
 
 ```{r}
 df <- data.frame(

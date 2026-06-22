@@ -8,7 +8,7 @@ source("scripts/site_helpers.R")
 meta <- read_meta()
 ```
 
-Researchers at the TU9 universities can publish open access in many journals
+Researchers at TU9 universities can publish open access in many journals
 through transformative agreements their institutions have negotiated with
 publishers. This site lists those [agreements](agreements.qmd) and the
 [journals](journals.qmd) each one covers, both alliance-wide and per
