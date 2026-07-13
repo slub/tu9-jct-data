@@ -1,8 +1,8 @@
 {
-  "updated": "2026-07-06",
+  "updated": "2026-07-13",
   "source": "Journal Checker Tool - Transformative Agreements Public Data (CC0)",
   "n_agreements": 37,
-  "n_journals": 12872,
+  "n_journals": 12874,
   "institutions": [
     {
       "name": "Technische Universität Braunschweig",
@@ -65,7 +65,7 @@
       "slug": "tu-darmstadt",
       "ror_id": "05n911h24",
       "n_agreements": 13,
-      "n_journals": 9893
+      "n_journals": 9895
     }
   ]
 }
