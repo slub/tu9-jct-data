@@ -1,71 +1,71 @@
 {
-  "updated": "2026-08-24",
+  "updated": "2026-08-31",
   "source": "Journal Checker Tool - Transformative Agreements Public Data (CC0)",
-  "n_agreements": 37,
-  "n_journals": 12874,
+  "n_agreements": 35,
+  "n_journals": 10685,
   "institutions": [
     {
       "name": "Technische Universität Braunschweig",
       "slug": "tu-braunschweig",
       "ror_id": "010nsgg66",
-      "n_agreements": 18,
-      "n_journals": 12012
+      "n_agreements": 16,
+      "n_journals": 9823
     },
     {
       "name": "Technical University of Munich",
       "slug": "tu-munich",
       "ror_id": "02kkvpp62;04jc43x05",
-      "n_agreements": 20,
-      "n_journals": 12264
+      "n_agreements": 18,
+      "n_journals": 10075
     },
     {
       "name": "Leibniz University Hannover",
       "slug": "leibniz-hannover",
       "ror_id": "0304hq317;04aj4c181",
-      "n_agreements": 23,
-      "n_journals": 11904
+      "n_agreements": 21,
+      "n_journals": 9715
     },
     {
       "name": "Technical University of Berlin",
       "slug": "tu-berlin",
       "ror_id": "03v4gjf40",
-      "n_agreements": 16,
-      "n_journals": 10313
+      "n_agreements": 14,
+      "n_journals": 8124
     },
     {
       "name": "Technische Universität Dresden",
       "slug": "tu-dresden",
       "ror_id": "042aqky30;03wf51b65;04za5zm41",
-      "n_agreements": 22,
-      "n_journals": 12126
+      "n_agreements": 21,
+      "n_journals": 9946
     },
     {
       "name": "Karlsruhe Institute of Technology",
       "slug": "kit",
       "ror_id": "04t3en479",
-      "n_agreements": 19,
-      "n_journals": 11522
+      "n_agreements": 17,
+      "n_journals": 9333
     },
     {
       "name": "University of Stuttgart",
       "slug": "uni-stuttgart",
       "ror_id": "04vnq7t77",
-      "n_agreements": 20,
-      "n_journals": 11675
+      "n_agreements": 18,
+      "n_journals": 9486
     },
     {
       "name": "RWTH Aachen University",
       "slug": "rwth-aachen",
       "ror_id": "04xfq0f34;02gm5zw39",
-      "n_agreements": 16,
-      "n_journals": 11099
+      "n_agreements": 14,
+      "n_journals": 8910
     },
     {
       "name": "Technische Universität Darmstadt",
       "slug": "tu-darmstadt",
       "ror_id": "05n911h24",
-      "n_agreements": 13,
-      "n_journals": 9895
+      "n_agreements": 11,
+      "n_journals": 7706
     }
   ]
 }
